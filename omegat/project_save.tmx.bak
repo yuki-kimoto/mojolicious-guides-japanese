@@ -1,0 +1,140 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE tmx SYSTEM "tmx11.dtd">
+<tmx version="1.1">
+  <header creationtool="OmegaT" o-tmf="OmegaT TMX" adminlang="EN-US" datatype="plaintext" creationtoolversion="4.1.5_3_10485" segtype="sentence" srclang="EN"/>
+  <body>
+<!-- Default translations -->
+    <tu>
+      <tuv lang="EN">
+        <seg># Check if we have a log directory that is writable</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190211T032341Z" creationid="mokoo" creationdate="20190211T032341Z">
+        <seg># 書き込み可能なログディレクトリがあるかどうか調べる</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># Event loop</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051715Z" creationid="mokoo" creationdate="20190210T051715Z">
+        <seg># イベントループ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># HTML/XML DOM parser with CSS selectors</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051618Z" creationid="mokoo" creationdate="20190210T051618Z">
+        <seg># CSSセレクタ付きHTML/XML DOMパーサー</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># HTTP/WebSocket server</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051702Z" creationid="mokoo" creationdate="20190210T051702Z">
+        <seg># HTTP/WebSocket サーバ</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># HTTP/WebSocket user agent</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051556Z" creationid="mokoo" creationdate="20190210T051556Z">
+        <seg># HTTP/WebSocket ユーザエージェント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># Perl-ish templates</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051643Z" creationid="mokoo" creationdate="20190210T051643Z">
+        <seg># Perl風テンプレート</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># Reduced log output outside of development mode</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190211T032425Z" creationid="mokoo" creationdate="20190211T032425Z">
+        <seg># 開発モード以外でログの出力を減らす</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head1 DESCRIPTION</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051725Z" creationid="mokoo" creationdate="20190210T051725Z">
+        <seg>=head1 説明</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head1 SEE ALSO</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051950Z" creationid="mokoo" creationdate="20190210T051950Z">
+        <seg>=head1 参考</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head1 SYNOPSIS</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051540Z" creationid="mokoo" creationdate="20190210T051540Z">
+        <seg>=head1 使い方</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>A powerful web development toolkit, with all the basic tools and helpers needed
+to write simple web applications and higher level web frameworks, such as
+L&lt;Mojolicious&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051802Z" creationid="mokoo" creationdate="20190210T051442Z">
+        <seg>シンプルなWebアプリケーションやL&lt;Mojolicious&gt; などの高レベルのWebフレームワークを書くために必要なすべての基本的なツールとヘルパーを備えた強力なWeb開発ツールキット。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>I'll rest
+#             easier not knowing where they are."
+1;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T052618Z" creationid="mokoo" creationdate="20190210T052618Z">
+        <seg>I'll rest
+#             easier not knowing where they are."
+1;　https://www.tvfanatic.com/quotes/these-old-doomsday-devices-are-dangerously-unstable-ill-rest/</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Mojo - Web development toolkit</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051529Z" creationid="mokoo" creationdate="20190210T051529Z">
+        <seg>Mojo  -  Web開発ツールキット</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>See L&lt;Mojolicious::Guides&gt; for more!</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051941Z" creationid="mokoo" creationdate="20190210T051941Z">
+        <seg>詳しくは L&lt;Mojolicious::Guides&gt; を見てください！</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Some of the most commonly used tools are L&lt;Mojo::UserAgent&gt;,
+L&lt;Mojo::DOM&gt;, L&lt;Mojo::JSON&gt;, L&lt;Mojo::Server::Daemon&gt;, L&lt;Mojo::Server::Prefork&gt;,
+L&lt;Mojo::IOLoop&gt; and L&lt;Mojo::Template&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190210T051909Z" creationid="mokoo" creationdate="20190210T051909Z">
+        <seg>このうちもっともよく使われているツールには以下があります。
+L&lt;Mojo::UserAgent&gt;,
+L&lt;Mojo::DOM&gt;, L&lt;Mojo::JSON&gt;, L&lt;Mojo::Server::Daemon&gt;, L&lt;Mojo::Server::Prefork&gt;,
+L&lt;Mojo::IOLoop&gt; and L&lt;Mojo::Template&gt;</seg>
+      </tuv>
+    </tu>
+<!-- Alternative translations -->
+  </body>
+</tmx>

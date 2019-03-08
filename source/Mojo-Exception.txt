@@ -1,0 +1,148 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Exception - Exceptions with context
+
+=head1 SYNOPSIS
+
+  use Mojo::Exception;
+
+  # Throw exception and show stack trace
+  eval { Mojo::Exception->throw('Something went wrong!') };
+  say "$_->[1]:$_->[2]" for @{$@->frames};
+
+  # Customize exception
+  eval {
+    my $e = Mojo::Exception->new('Died at test.pl line 3.');
+    die $e->trace(2)->inspect->verbose(1);
+  };
+  say $@;
+
+=head1 DESCRIPTION
+
+L<Mojo::Exception> is a container for exceptions with context information.
+
+=head1 ATTRIBUTES
+
+L<Mojo::Exception> implements the following attributes.
+
+=head2 frames
+
+  my $frames = $e->frames;
+  $e         = $e->frames([$frame1, $frame2]);
+
+Stack trace if available.
+
+  # Extract information from the last frame
+  my ($package, $filename, $line, $subroutine, $hasargs, $wantarray, $evaltext,
+      $is_require, $hints, $bitmask, $hinthash) = @{$e->frames->[-1]};
+
+=head2 line
+
+  my $line = $e->line;
+  $e       = $e->line([3, 'die;']);
+
+The line where the exception occurred if available.
+
+=head2 lines_after
+
+  my $lines = $e->lines_after;
+  $e        = $e->lines_after([[4, 'say $foo;'], [5, 'say $bar;']]);
+
+Lines after the line where the exception occurred if available.
+
+=head2 lines_before
+
+  my $lines = $e->lines_before;
+  $e        = $e->lines_before([[1, 'my $foo = 23;'], [2, 'my $bar = 24;']]);
+
+Lines before the line where the exception occurred if available.
+
+=head2 message
+
+  my $msg = $e->message;
+  $e      = $e->message('Died at test.pl line 3.');
+
+Exception message, defaults to C<Exception!>.
+
+=head2 verbose
+
+  my $bool = $e->verbose;
+  $e       = $e->verbose($bool);
+
+Enable context information for L</"to_string">.
+
+=head1 METHODS
+
+L<Mojo::Exception> inherits all methods from L<Mojo::Base> and implements the
+following new ones.
+
+=head2 inspect
+
+  $e = $e->inspect;
+  $e = $e->inspect($source1, $source2);
+
+Inspect L</"message">, L</"frames"> and optional additional sources to fill
+L</"lines_before">, L</"line"> and L</"lines_after"> with context information.
+
+=head2 new
+
+  my $e = Mojo::Exception->new;
+  my $e = Mojo::Exception->new('Died at test.pl line 3.');
+
+Construct a new L<Mojo::Exception> object and assign L</"message"> if necessary.
+
+=head2 to_string
+
+  my $str = $e->to_string;
+
+Render exception.
+
+  # Render exception with context
+  say $e->verbose(1)->to_string;
+
+=head2 throw
+
+  Mojo::Exception->throw('Something went wrong!');
+
+Throw exception from the current execution context.
+
+  # Longer version
+  die Mojo::Exception->new('Something went wrong!')->trace->inspect;
+
+=head2 trace
+
+  $e = $e->trace;
+  $e = $e->trace($skip);
+
+Generate stack trace and store all L</"frames">, defaults to skipping C<1> call
+frame.
+
+  # Skip 3 call frames
+  $e->trace(3);
+
+  # Skip no call frames
+  $e->trace(0);
+
+=head1 OPERATORS
+
+L<Mojo::Exception> overloads the following operators.
+
+=head2 bool
+
+  my $bool = !!$e;
+
+Always true.
+
+=head2 stringify
+
+  my $str = "$e";
+
+Alias for L</"to_string">.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

@@ -1,0 +1,139 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Asset::File - File storage for HTTP content
+
+=head1 SYNOPSIS
+
+  use Mojo::Asset::File;
+
+  # Temporary file
+  my $file = Mojo::Asset::File->new;
+  $file->add_chunk('foo bar baz');
+  say 'File contains "bar"' if $file->contains('bar') >= 0;
+  say $file->slurp;
+
+  # Existing file
+  my $file = Mojo::Asset::File->new(path => '/home/sri/foo.txt');
+  $file->move_to('/yada.txt');
+  say $file->slurp;
+
+=head1 DESCRIPTION
+
+L<Mojo::Asset::File> is a file storage backend for HTTP content.
+
+=head1 EVENTS
+
+L<Mojo::Asset::File> inherits all events from L<Mojo::Asset>.
+
+=head1 ATTRIBUTES
+
+L<Mojo::Asset::File> inherits all attributes from L<Mojo::Asset> and implements
+the following new ones.
+
+=head2 cleanup
+
+  my $bool = $file->cleanup;
+  $file    = $file->cleanup($bool);
+
+Delete L</"path"> automatically once the file is not used anymore.
+
+=head2 handle
+
+  my $handle = $file->handle;
+  $file      = $file->handle(IO::File->new);
+
+Filehandle, created on demand for L</"path">, which can be generated
+automatically and safely based on L</"tmpdir">.
+
+=head2 path
+
+  my $path = $file->path;
+  $file    = $file->path('/home/sri/foo.txt');
+
+File path used to create L</"handle">.
+
+=head2 tmpdir
+
+  my $tmpdir = $file->tmpdir;
+  $file      = $file->tmpdir('/tmp');
+
+Temporary directory used to generate L</"path">, defaults to the value of the
+C<MOJO_TMPDIR> environment variable or auto-detection.
+
+=head1 METHODS
+
+L<Mojo::Asset::File> inherits all methods from L<Mojo::Asset> and implements
+the following new ones.
+
+=head2 add_chunk
+
+  $file = $file->add_chunk('foo bar baz');
+
+Add chunk of data.
+
+=head2 contains
+
+  my $position = $file->contains('bar');
+
+Check if asset contains a specific string.
+
+=head2 get_chunk
+
+  my $bytes = $file->get_chunk($offset);
+  my $bytes = $file->get_chunk($offset, $max);
+
+Get chunk of data starting from a specific position, defaults to a maximum
+chunk size of C<131072> bytes (128KiB).
+
+=head2 is_file
+
+  my $bool = $file->is_file;
+
+True, this is a L<Mojo::Asset::File> object.
+
+=head2 move_to
+
+  $file = $file->move_to('/home/sri/bar.txt');
+
+Move asset data into a specific file and disable L</"cleanup">.
+
+=head2 mtime
+
+  my $mtime = $file->mtime;
+
+Modification time of asset.
+
+=head2 new
+
+  my $file = Mojo::Asset::File->new;
+  my $file = Mojo::Asset::File->new(path => '/home/sri/test.txt');
+  my $file = Mojo::Asset::File->new({path => '/home/sri/test.txt'});
+
+Construct a new L<Mojo::Asset::File> object.
+
+=head2 size
+
+  my $size = $file->size;
+
+Size of asset data in bytes.
+
+=head2 slurp
+
+  my $bytes = $file->slurp;
+
+Read all asset data at once.
+
+=head2 to_file
+
+  $file = $file->to_file;
+
+Does nothing but return the invocant, since we already have a
+L<Mojo::Asset::File> object.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

@@ -1,0 +1,48 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Home - Home sweet home
+
+=head1 SYNOPSIS
+
+  use Mojo::Home;
+
+  # Find and manage the project root directory
+  my $home = Mojo::Home->new;
+  $home->detect;
+  say $home->child('templates', 'layouts', 'default.html.ep');
+  say "$home";
+
+=head1 DESCRIPTION
+
+L<Mojo::Home> is a container for home directories based on L<Mojo::File>.
+
+=head1 METHODS
+
+L<Mojo::Home> inherits all methods from L<Mojo::File> and implements the
+following new ones.
+
+=head2 detect
+
+  $home = $home->detect;
+  $home = $home->detect('My::App');
+
+Detect home directory from the value of the C<MOJO_HOME> environment variable or
+the location of the application class.
+
+=head2 rel_file
+
+  my $path = $home->rel_file('foo/bar.html');
+
+Return a new L<Mojo::Home> object relative to the home directory.
+
+=head1 OPERATORS
+
+L<Mojo::Home> inherits all overloaded operators from L<Mojo::File>.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

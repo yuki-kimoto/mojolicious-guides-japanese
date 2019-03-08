@@ -1,0 +1,82 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::DOM::HTML - HTML/XML engine
+
+=head1 SYNOPSIS
+
+  use Mojo::DOM::HTML;
+
+  # Turn HTML into DOM tree
+  my $html = Mojo::DOM::HTML->new;
+  $html->parse('<div><p id="a">Test</p><p id="b">123</p></div>');
+  my $tree = $html->tree;
+
+=head1 DESCRIPTION
+
+L<Mojo::DOM::HTML> is the HTML/XML engine used by L<Mojo::DOM>, based on the
+L<HTML Living Standard|https://html.spec.whatwg.org> and the
+L<Extensible Markup Language (XML) 1.0|http://www.w3.org/TR/xml/>.
+
+=head1 FUNCTIONS
+
+L<Mojo::DOM::HTML> implements the following functions, which can be imported
+individually.
+
+=head2 tag_to_html
+
+  my $str = tag_to_html 'div', id => 'foo', 'safe content';
+
+Generate HTML/XML tag and render it right away. This is a significantly faster
+alternative to L</"tag"> for template systems that have to generate a lot of
+tags.
+
+=head1 ATTRIBUTES
+
+L<Mojo::DOM::HTML> implements the following attributes.
+
+=head2 tree
+
+  my $tree = $html->tree;
+  $html    = $html->tree(['root']);
+
+Document Object Model. Note that this structure should only be used very
+carefully since it is very dynamic.
+
+=head2 xml
+
+  my $bool = $html->xml;
+  $html    = $html->xml($bool);
+
+Disable HTML semantics in parser and activate case-sensitivity, defaults to
+auto-detection based on XML declarations.
+
+=head1 METHODS
+
+L<Mojo::DOM::HTML> inherits all methods from L<Mojo::Base> and implements the
+following new ones.
+
+=head2 parse
+
+  $html = $html->parse('<foo bar="baz">I ♥ Mojolicious!</foo>');
+
+Parse HTML/XML fragment.
+
+=head2 render
+
+  my $str = $html->render;
+
+Render DOM to HTML/XML.
+
+=head2 tag
+
+  $html = $html->tag('div', id => 'foo', 'safe content');
+
+Generate HTML/XML tag.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

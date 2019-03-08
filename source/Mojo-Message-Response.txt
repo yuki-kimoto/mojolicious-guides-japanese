@@ -1,0 +1,161 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Message::Response - HTTP response
+
+=head1 SYNOPSIS
+
+  use Mojo::Message::Response;
+
+  # Parse
+  my $res = Mojo::Message::Response->new;
+  $res->parse("HTTP/1.0 200 OK\x0d\x0a");
+  $res->parse("Content-Length: 12\x0d\x0a");
+  $res->parse("Content-Type: text/plain\x0d\x0a\x0d\x0a");
+  $res->parse('Hello World!');
+  say $res->code;
+  say $res->headers->content_type;
+  say $res->body;
+
+  # Build
+  my $res = Mojo::Message::Response->new;
+  $res->code(200);
+  $res->headers->content_type('text/plain');
+  $res->body('Hello World!');
+  say $res->to_string;
+
+=head1 DESCRIPTION
+
+L<Mojo::Message::Response> is a container for HTTP responses, based on
+L<RFC 7230|http://tools.ietf.org/html/rfc7230> and
+L<RFC 7231|http://tools.ietf.org/html/rfc7231>.
+
+=head1 EVENTS
+
+L<Mojo::Message::Response> inherits all events from L<Mojo::Message>.
+
+=head1 ATTRIBUTES
+
+L<Mojo::Message::Response> inherits all attributes from L<Mojo::Message> and
+implements the following new ones.
+
+=head2 code
+
+  my $code = $res->code;
+  $res     = $res->code(200);
+
+HTTP response status code.
+
+=head2 max_message_size
+
+  my $size = $res->max_message_size;
+  $res     = $res->max_message_size(1024);
+
+Maximum message size in bytes, defaults to the value of the
+C<MOJO_MAX_MESSAGE_SIZE> environment variable or C<2147483648> (2GiB). Setting
+the value to C<0> will allow messages of indefinite size.
+
+=head2 message
+
+  my $msg = $res->message;
+  $res    = $res->message('OK');
+
+HTTP response status message.
+
+=head1 METHODS
+
+L<Mojo::Message::Response> inherits all methods from L<Mojo::Message> and
+implements the following new ones.
+
+=head2 cookies
+
+  my $cookies = $res->cookies;
+  $res        = $res->cookies(Mojo::Cookie::Response->new);
+  $res        = $res->cookies({name => 'foo', value => 'bar'});
+
+Access response cookies, usually L<Mojo::Cookie::Response> objects.
+
+  # Names of all cookies
+  say $_->name for @{$res->cookies};
+
+=head2 default_message
+
+  my $msg = $res->default_message;
+  my $msg = $res->default_message(418);
+
+Generate default response message for status code, defaults to using
+L</"code">.
+
+=head2 extract_start_line
+
+  my $bool = $res->extract_start_line(\$str);
+
+Extract status-line from string.
+
+=head2 fix_headers
+
+  $res = $res->fix_headers;
+
+Make sure response has all required headers.
+
+=head2 get_start_line_chunk
+
+  my $bytes = $res->get_start_line_chunk($offset);
+
+Get a chunk of status-line data starting from a specific position. Note that
+this method finalizes the response.
+
+=head2 is_client_error
+
+  my $bool = $res->is_client_error;
+
+Check if this response has a C<4xx> status L</"code">.
+
+=head2 is_empty
+
+  my $bool = $res->is_empty;
+
+Check if this response has a C<1xx>, C<204> or C<304> status L</"code">.
+
+=head2 is_error
+
+  my $bool = $res->is_error;
+
+Check if this response has a C<4xx> or C<5xx> status L</"code">.
+
+=head2 is_info
+
+  my $bool = $res->is_info;
+
+Check if this response has a C<1xx> status L</"code">.
+
+=head2 is_redirect
+
+  my $bool = $res->is_redirect;
+
+Check if this response has a C<3xx> status L</"code">.
+
+=head2 is_server_error
+
+  my $bool = $res->is_server_error;
+
+Check if this response has a C<5xx> status L</"code">.
+
+=head2 is_success
+
+  my $bool = $res->is_success;
+
+Check if this response has a C<2xx> status L</"code">.
+
+=head2 start_line_size
+
+  my $size = $req->start_line_size;
+
+Size of the status-line in bytes. Note that this method finalizes the response.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

@@ -1,0 +1,65 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Server::PSGI - PSGI server
+
+=head1 SYNOPSIS
+
+  use Mojo::Server::PSGI;
+
+  my $psgi = Mojo::Server::PSGI->new;
+  $psgi->unsubscribe('request')->on(request => sub {
+    my ($psgi, $tx) = @_;
+
+    # Request
+    my $method = $tx->req->method;
+    my $path   = $tx->req->url->path;
+
+    # Response
+    $tx->res->code(200);
+    $tx->res->headers->content_type('text/plain');
+    $tx->res->body("$method request for $path!");
+
+    # Resume transaction
+    $tx->resume;
+  });
+  my $app = $psgi->to_psgi_app;
+
+=head1 DESCRIPTION
+
+L<Mojo::Server::PSGI> allows L<Mojolicious> applications to run on all L<PSGI>
+compatible servers.
+
+See L<Mojolicious::Guides::Cookbook/"DEPLOYMENT"> for more.
+
+=head1 EVENTS
+
+L<Mojo::Server::PSGI> inherits all events from L<Mojo::Server>.
+
+=head1 ATTRIBUTES
+
+L<Mojo::Server::PSGI> inherits all attributes from L<Mojo::Server>.
+
+=head1 METHODS
+
+L<Mojo::Server::PSGI> inherits all methods from L<Mojo::Server> and implements
+the following new ones.
+
+=head2 run
+
+  my $res = $psgi->run($env);
+
+Run L<PSGI>.
+
+=head2 to_psgi_app
+
+  my $app = $psgi->to_psgi_app;
+
+Turn L<Mojolicious> application into L<PSGI> application.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

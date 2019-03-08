@@ -1,0 +1,203 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::IOLoop::Stream - Non-blocking I/O stream
+
+=head1 SYNOPSIS
+
+  use Mojo::IOLoop::Stream;
+
+  # Create stream
+  my $stream = Mojo::IOLoop::Stream->new($handle);
+  $stream->on(read => sub {
+    my ($stream, $bytes) = @_;
+    ...
+  });
+  $stream->on(close => sub {
+    my $stream = shift;
+    ...
+  });
+  $stream->on(error => sub {
+    my ($stream, $err) = @_;
+    ...
+  });
+
+  # Start and stop watching for new data
+  $stream->start;
+  $stream->stop;
+
+  # Start reactor if necessary
+  $stream->reactor->start unless $stream->reactor->is_running;
+
+=head1 DESCRIPTION
+
+L<Mojo::IOLoop::Stream> is a container for I/O streams used by L<Mojo::IOLoop>.
+
+=head1 EVENTS
+
+L<Mojo::IOLoop::Stream> inherits all events from L<Mojo::EventEmitter> and can
+emit the following new ones.
+
+=head2 close
+
+  $stream->on(close => sub {
+    my $stream = shift;
+    ...
+  });
+
+Emitted if the stream gets closed.
+
+=head2 drain
+
+  $stream->on(drain => sub {
+    my $stream = shift;
+    ...
+  });
+
+Emitted once all data has been written.
+
+=head2 error
+
+  $stream->on(error => sub {
+    my ($stream, $err) = @_;
+    ...
+  });
+
+Emitted if an error occurs on the stream, fatal if unhandled.
+
+=head2 read
+
+  $stream->on(read => sub {
+    my ($stream, $bytes) = @_;
+    ...
+  });
+
+Emitted if new data arrives on the stream.
+
+=head2 timeout
+
+  $stream->on(timeout => sub {
+    my $stream = shift;
+    ...
+  });
+
+Emitted if the stream has been inactive for too long and will get closed
+automatically.
+
+=head2 write
+
+  $stream->on(write => sub {
+    my ($stream, $bytes) = @_;
+    ...
+  });
+
+Emitted if new data has been written to the stream.
+
+=head1 ATTRIBUTES
+
+L<Mojo::IOLoop::Stream> implements the following attributes.
+
+=head2 reactor
+
+  my $reactor = $stream->reactor;
+  $stream     = $stream->reactor(Mojo::Reactor::Poll->new);
+
+Low-level event reactor, defaults to the C<reactor> attribute value of the
+global L<Mojo::IOLoop> singleton. Note that this attribute is weakened.
+
+=head1 METHODS
+
+L<Mojo::IOLoop::Stream> inherits all methods from L<Mojo::EventEmitter> and
+implements the following new ones.
+
+=head2 bytes_read
+
+  my $num = $stream->bytes_read;
+
+Number of bytes received.
+
+=head2 bytes_written
+
+  my $num = $stream->bytes_written;
+
+Number of bytes written.
+
+=head2 close
+
+  $stream->close;
+
+Close stream immediately.
+
+=head2 close_gracefully
+
+  $stream->close_gracefully;
+
+Close stream gracefully.
+
+=head2 handle
+
+  my $handle = $stream->handle;
+
+Get handle for stream, usually an L<IO::Socket::IP> or L<IO::Socket::SSL>
+object.
+
+=head2 is_readable
+
+  my $bool = $stream->is_readable;
+
+Quick non-blocking check if stream is readable, useful for identifying tainted
+sockets.
+
+=head2 is_writing
+
+  my $bool = $stream->is_writing;
+
+Check if stream is writing.
+
+=head2 new
+
+  my $stream = Mojo::IOLoop::Stream->new($handle);
+
+Construct a new L<Mojo::IOLoop::Stream> object.
+
+=head2 start
+
+  $stream->start;
+
+Start or resume watching for new data on the stream.
+
+=head2 steal_handle
+
+  my $handle = $stream->steal_handle;
+
+Steal L</"handle"> and prevent it from getting closed automatically.
+
+=head2 stop
+
+  $stream->stop;
+
+Stop watching for new data on the stream.
+
+=head2 timeout
+
+  my $timeout = $stream->timeout;
+  $stream     = $stream->timeout(45);
+
+Maximum amount of time in seconds stream can be inactive before getting closed
+automatically, defaults to C<15>. Setting the value to C<0> will allow this
+stream to be inactive indefinitely.
+
+=head2 write
+
+  $stream = $stream->write($bytes);
+  $stream = $stream->write($bytes => sub {...});
+
+Write data to stream, the optional drain callback will be executed once all data
+has been written.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

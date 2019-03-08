@@ -1,0 +1,113 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::UserAgent::CookieJar - Cookie jar for HTTP user agents
+
+=head1 SYNOPSIS
+
+  use Mojo::UserAgent::CookieJar;
+
+  # Add response cookies
+  my $jar = Mojo::UserAgent::CookieJar->new;
+  $jar->add(
+    Mojo::Cookie::Response->new(
+      name   => 'foo',
+      value  => 'bar',
+      domain => 'localhost',
+      path   => '/test'
+    )
+  );
+
+  # Find request cookies
+  for my $cookie (@{$jar->find(Mojo::URL->new('http://localhost/test'))}) {
+    say $cookie->name;
+    say $cookie->value;
+  }
+
+=head1 DESCRIPTION
+
+L<Mojo::UserAgent::CookieJar> is a minimalistic and relaxed cookie jar used by
+L<Mojo::UserAgent>, based on L<RFC 6265|http://tools.ietf.org/html/rfc6265>.
+
+=head1 ATTRIBUTES
+
+L<Mojo::UserAgent::CookieJar> implements the following attributes.
+
+=head2 ignore
+
+  my $ignore = $jar->ignore;
+  $jar       = $jar->ignore(sub {...});
+
+A callback used to decide if a cookie should be ignored by L</"collect">.
+
+  # Ignore all cookies
+  $jar->ignore(sub { 1 });
+
+  # Ignore cookies for domains "com", "net" and "org"
+  $jar->ignore(sub {
+    my $cookie = shift;
+    return undef unless my $domain = $cookie->domain;
+    return $domain eq 'com' || $domain eq 'net' || $domain eq 'org';
+  });
+
+=head2 max_cookie_size
+
+  my $size = $jar->max_cookie_size;
+  $jar     = $jar->max_cookie_size(4096);
+
+Maximum cookie size in bytes, defaults to C<4096> (4KiB).
+
+=head1 METHODS
+
+L<Mojo::UserAgent::CookieJar> inherits all methods from L<Mojo::Base> and
+implements the following new ones.
+
+=head2 add
+
+  $jar = $jar->add(@cookies);
+
+Add multiple L<Mojo::Cookie::Response> objects to the jar.
+
+=head2 all
+
+  my $cookies = $jar->all;
+
+Return all L<Mojo::Cookie::Response> objects that are currently stored in the
+jar.
+
+  # Names of all cookies
+  say $_->name for @{$jar->all};
+
+=head2 collect
+
+  $jar->collect(Mojo::Transaction::HTTP->new);
+
+Collect response cookies from transaction.
+
+=head2 empty
+
+  $jar->empty;
+
+Empty the jar.
+
+=head2 find
+
+  my $cookies = $jar->find(Mojo::URL->new);
+
+Find L<Mojo::Cookie::Request> objects in the jar for L<Mojo::URL> object.
+
+  # Names of all cookies found
+  say $_->name for @{$jar->find(Mojo::URL->new('http://example.com/foo'))};
+
+=head2 prepare
+
+  $jar->prepare(Mojo::Transaction::HTTP->new);
+
+Prepare request cookies for transaction.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

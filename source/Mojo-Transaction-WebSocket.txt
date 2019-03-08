@@ -1,0 +1,346 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Transaction::WebSocket - WebSocket transaction
+
+=head1 SYNOPSIS
+
+  use Mojo::Transaction::WebSocket;
+
+  # Send and receive WebSocket messages
+  my $ws = Mojo::Transaction::WebSocket->new;
+  $ws->send('Hello World!');
+  $ws->on(message => sub {
+    my ($ws, $msg) = @_;
+    say "Message: $msg";
+  });
+  $ws->on(finish => sub {
+    my ($ws, $code, $reason) = @_;
+    say "WebSocket closed with status $code.";
+  });
+
+=head1 DESCRIPTION
+
+L<Mojo::Transaction::WebSocket> is a container for WebSocket transactions, based
+on L<RFC 6455|http://tools.ietf.org/html/rfc6455> and
+L<RFC 7692|http://tools.ietf.org/html/rfc7692>.
+
+=head1 EVENTS
+
+L<Mojo::Transaction::WebSocket> inherits all events from L<Mojo::Transaction>
+and can emit the following new ones.
+
+=head2 binary
+
+  $ws->on(binary => sub {
+    my ($ws, $bytes) = @_;
+    ...
+  });
+
+Emitted when a complete WebSocket binary message has been received.
+
+  $ws->on(binary => sub {
+    my ($ws, $bytes) = @_;
+    say "Binary: $bytes";
+  });
+
+=head2 drain
+
+  $ws->on(drain => sub {
+    my $ws = shift;
+    ...
+  });
+
+Emitted once all data has been sent.
+
+  $ws->on(drain => sub {
+    my $ws = shift;
+    $ws->send(time);
+  });
+
+=head2 finish
+
+  $ws->on(finish => sub {
+    my ($ws, $code, $reason) = @_;
+    ...
+  });
+
+Emitted when the WebSocket connection has been closed.
+
+=head2 frame
+
+  $ws->on(frame => sub {
+    my ($ws, $frame) = @_;
+    ...
+  });
+
+Emitted when a WebSocket frame has been received.
+
+  $ws->on(frame => sub {
+    my ($ws, $frame) = @_;
+    say "FIN: $frame->[0]";
+    say "RSV1: $frame->[1]";
+    say "RSV2: $frame->[2]";
+    say "RSV3: $frame->[3]";
+    say "Opcode: $frame->[4]";
+    say "Payload: $frame->[5]";
+  });
+
+=head2 json
+
+  $ws->on(json => sub {
+    my ($ws, $json) = @_;
+    ...
+  });
+
+Emitted when a complete WebSocket message has been received, all text and
+binary messages will be automatically JSON decoded. Note that this event only
+gets emitted when it has at least one subscriber.
+
+  $ws->on(json => sub {
+    my ($ws, $hash) = @_;
+    say "Message: $hash->{msg}";
+  });
+
+=head2 message
+
+  $ws->on(message => sub {
+    my ($ws, $msg) = @_;
+    ...
+  });
+
+Emitted when a complete WebSocket message has been received, text messages will
+be automatically decoded. Note that this event only gets emitted when it has at
+least one subscriber.
+
+  $ws->on(message => sub {
+    my ($ws, $msg) = @_;
+    say "Message: $msg";
+  });
+
+=head2 resume
+
+  $tx->on(resume => sub {
+    my $tx = shift;
+    ...
+  });
+
+Emitted when transaction is resumed.
+
+=head2 text
+
+  $ws->on(text => sub {
+    my ($ws, $bytes) = @_;
+    ...
+  });
+
+Emitted when a complete WebSocket text message has been received.
+
+  $ws->on(text => sub {
+    my ($ws, $bytes) = @_;
+    say "Text: $bytes";
+  });
+
+=head1 ATTRIBUTES
+
+L<Mojo::Transaction::WebSocket> inherits all attributes from
+L<Mojo::Transaction> and implements the following new ones.
+
+=head2 compressed
+
+  my $bool = $ws->compressed;
+  $ws      = $ws->compressed($bool);
+
+Compress messages with C<permessage-deflate> extension.
+
+=head2 established
+
+  my $bool = $ws->established;
+  $ws      = $ws->established($bool);
+
+WebSocket connection established.
+
+=head2 handshake
+
+  my $handshake = $ws->handshake;
+  $ws           = $ws->handshake(Mojo::Transaction::HTTP->new);
+
+The original handshake transaction, usually a L<Mojo::Transaction::HTTP> object.
+
+=head2 masked
+
+  my $bool = $ws->masked;
+  $ws      = $ws->masked($bool);
+
+Mask outgoing frames with XOR cipher and a random 32-bit key.
+
+=head2 max_websocket_size
+
+  my $size = $ws->max_websocket_size;
+  $ws      = $ws->max_websocket_size(1024);
+
+Maximum WebSocket message size in bytes, defaults to the value of the
+C<MOJO_MAX_WEBSOCKET_SIZE> environment variable or C<262144> (256KiB).
+
+=head1 METHODS
+
+L<Mojo::Transaction::WebSocket> inherits all methods from L<Mojo::Transaction>
+and implements the following new ones.
+
+=head2 build_message
+
+  my $frame = $ws->build_message({binary => $bytes});
+  my $frame = $ws->build_message({text   => $bytes});
+  my $frame = $ws->build_message({json   => {test => [1, 2, 3]}});
+  my $frame = $ws->build_message($chars);
+
+Build WebSocket message.
+
+=head2 client_read
+
+  $ws->client_read($data);
+
+Read data client-side, used to implement user agents such as L<Mojo::UserAgent>.
+
+=head2 client_write
+
+  my $bytes = $ws->client_write;
+
+Write data client-side, used to implement user agents such as
+L<Mojo::UserAgent>.
+
+=head2 closed
+
+  $tx = $tx->closed;
+
+Same as L<Mojo::Transaction/"completed">, but also indicates that all
+transaction data has been sent.
+
+=head2 connection
+
+  my $id = $ws->connection;
+
+Connection identifier.
+
+=head2 finish
+
+  $ws = $ws->finish;
+  $ws = $ws->finish(1000);
+  $ws = $ws->finish(1003 => 'Cannot accept data!');
+
+Close WebSocket connection gracefully.
+
+=head2 is_websocket
+
+  my $bool = $ws->is_websocket;
+
+True, this is a L<Mojo::Transaction::WebSocket> object.
+
+=head2 kept_alive
+
+  my $bool = $ws->kept_alive;
+
+Connection has been kept alive.
+
+=head2 local_address
+
+  my $address = $ws->local_address;
+
+Local interface address.
+
+=head2 local_port
+
+  my $port = $ws->local_port;
+
+Local interface port.
+
+=head2 parse_message
+
+  $ws->parse_message([$fin, $rsv1, $rsv2, $rsv3, $op, $payload]);
+
+Parse WebSocket message.
+
+=head2 protocol
+
+  my $proto = $ws->protocol;
+
+Return negotiated subprotocol or C<undef>.
+
+=head2 remote_address
+
+  my $address = $ws->remote_address;
+
+Remote interface address.
+
+=head2 remote_port
+
+  my $port = $ws->remote_port;
+
+Remote interface port.
+
+=head2 req
+
+  my $req = $ws->req;
+
+Handshake request, usually a L<Mojo::Message::Request> object.
+
+=head2 res
+
+  my $res = $ws->res;
+
+Handshake response, usually a L<Mojo::Message::Response> object.
+
+=head2 resume
+
+  $ws = $ws->resume;
+
+Resume L</"handshake"> transaction.
+
+=head2 send
+
+  $ws = $ws->send({binary => $bytes});
+  $ws = $ws->send({text   => $bytes});
+  $ws = $ws->send({json   => {test => [1, 2, 3]}});
+  $ws = $ws->send([$fin, $rsv1, $rsv2, $rsv3, $op, $payload]);
+  $ws = $ws->send($chars);
+  $ws = $ws->send($chars => sub {...});
+
+Send message or frame non-blocking via WebSocket, the optional drain callback
+will be executed once all data has been written.
+
+  # Send "Ping" frame
+  use Mojo::WebSocket 'WS_PING';
+  $ws->send([1, 0, 0, 0, WS_PING, 'Hello World!']);
+
+=head2 server_read
+
+  $ws->server_read($data);
+
+Read data server-side, used to implement web servers such as
+L<Mojo::Server::Daemon>.
+
+=head2 server_write
+
+  my $bytes = $ws->server_write;
+
+Write data server-side, used to implement web servers such as
+L<Mojo::Server::Daemon>.
+
+=head2 with_compression
+
+  $ws->with_compression;
+
+Negotiate C<permessage-deflate> extension for this WebSocket connection.
+
+=head2 with_protocols
+
+  my $proto = $ws->with_protocols('v2.proto', 'v1.proto');
+
+Negotiate subprotocol for this WebSocket connection.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

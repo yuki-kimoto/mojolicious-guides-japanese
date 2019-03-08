@@ -1,0 +1,116 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Date - HTTP date
+
+=head1 SYNOPSIS
+
+  use Mojo::Date;
+
+  # Parse
+  my $date = Mojo::Date->new('Sun, 06 Nov 1994 08:49:37 GMT');
+  say $date->epoch;
+
+  # Build
+  my $date = Mojo::Date->new(time + 60);
+  say "$date";
+
+=head1 DESCRIPTION
+
+L<Mojo::Date> implements HTTP date and time functions, based on
+L<RFC 7230|http://tools.ietf.org/html/rfc7230>,
+L<RFC 7231|http://tools.ietf.org/html/rfc7231> and
+L<RFC 3339|http://tools.ietf.org/html/rfc3339>.
+
+=head1 ATTRIBUTES
+
+L<Mojo::Date> implements the following attributes.
+
+=head2 epoch
+
+  my $epoch = $date->epoch;
+  $date     = $date->epoch(784111777);
+
+Epoch seconds, defaults to the current time.
+
+=head1 METHODS
+
+L<Mojo::Date> inherits all methods from L<Mojo::Base> and implements the
+following new ones.
+
+=head2 new
+
+  my $date = Mojo::Date->new;
+  my $date = Mojo::Date->new('Sun Nov  6 08:49:37 1994');
+
+Construct a new L<Mojo::Date> object and L</"parse"> date if necessary.
+
+=head2 parse
+
+  $date = $date->parse('Sun Nov  6 08:49:37 1994');
+
+Parse date.
+
+  # Epoch
+  say Mojo::Date->new('784111777')->epoch;
+  say Mojo::Date->new('784111777.21')->epoch;
+
+  # RFC 822/1123
+  say Mojo::Date->new('Sun, 06 Nov 1994 08:49:37 GMT')->epoch;
+
+  # RFC 850/1036
+  say Mojo::Date->new('Sunday, 06-Nov-94 08:49:37 GMT')->epoch;
+
+  # Ansi C asctime()
+  say Mojo::Date->new('Sun Nov  6 08:49:37 1994')->epoch;
+
+  # RFC 3339
+  say Mojo::Date->new('1994-11-06T08:49:37Z')->epoch;
+  say Mojo::Date->new('1994-11-06T08:49:37')->epoch;
+  say Mojo::Date->new('1994-11-06T08:49:37.21Z')->epoch;
+  say Mojo::Date->new('1994-11-06T08:49:37+01:00')->epoch;
+  say Mojo::Date->new('1994-11-06T08:49:37-01:00')->epoch;
+
+=head2 to_datetime
+
+  my $str = $date->to_datetime;
+
+Render L<RFC 3339|http://tools.ietf.org/html/rfc3339> date and time.
+
+  # "1994-11-06T08:49:37Z"
+  Mojo::Date->new(784111777)->to_datetime;
+
+  # "1994-11-06T08:49:37.21Z"
+  Mojo::Date->new(784111777.21)->to_datetime;
+
+=head2 to_string
+
+  my $str = $date->to_string;
+
+Render date suitable for HTTP messages.
+
+  # "Sun, 06 Nov 1994 08:49:37 GMT"
+  Mojo::Date->new(784111777)->to_string;
+
+=head1 OPERATORS
+
+L<Mojo::Date> overloads the following operators.
+
+=head2 bool
+
+  my $bool = !!$date;
+
+Always true.
+
+=head2 stringify
+
+  my $str = "$date";
+
+Alias for L</"to_string">.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

@@ -1,0 +1,122 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::WebSocket - The WebSocket protocol
+
+=head1 SYNOPSIS
+
+  use Mojo::WebSocket qw(WS_TEXT build_frame parse_frame);
+
+  my $bytes = build_frame 0, 1, 0, 0, 0, WS_TEXT, 'Hello World!';
+  my $frame = parse_frame \$bytes, 262144;
+
+=head1 DESCRIPTION
+
+L<Mojo::WebSocket> implements the WebSocket protocol as described in
+L<RFC 6455|http://tools.ietf.org/html/rfc6455>. Note that 64-bit frames require
+a Perl with support for quads or they are limited to 32-bit.
+
+=head1 FUNCTIONS
+
+L<Mojo::WebSocket> implements the following functions, which can be imported
+individually.
+
+=head2 build_frame
+
+  my $bytes = build_frame $masked, $fin, $rsv1, $rsv2, $rsv3, $op, $payload;
+
+Build WebSocket frame.
+
+  # Masked binary frame with FIN bit and payload
+  say build_frame 1, 1, 0, 0, 0, WS_BINARY, 'Hello World!';
+
+  # Text frame with payload but without FIN bit
+  say build_frame 0, 0, 0, 0, 0, WS_TEXT, 'Hello ';
+
+  # Continuation frame with FIN bit and payload
+  say build_frame 0, 1, 0, 0, 0, WS_CONTINUATION, 'World!';
+
+  # Close frame with FIN bit and without payload
+  say build_frame 0, 1, 0, 0, 0, WS_CLOSE, '';
+
+  # Ping frame with FIN bit and payload
+  say build_frame 0, 1, 0, 0, 0, WS_PING, 'Test 123';
+
+  # Pong frame with FIN bit and payload
+  say build_frame 0, 1, 0, 0, 0, WS_PONG, 'Test 123';
+
+=head2 challenge
+
+  my $bool = challenge Mojo::Transaction::WebSocket->new;
+
+Check WebSocket handshake challenge.
+
+=head2 client_handshake
+
+  my $tx = client_handshake Mojo::Transaction::HTTP->new;
+
+Perform WebSocket handshake client-side.
+
+=head2 parse_frame
+
+  my $frame = parse_frame \$bytes, $limit;
+
+Parse WebSocket frame.
+
+  # Parse single frame and remove it from buffer
+  my $frame = parse_frame \$buffer, 262144;
+  say "FIN: $frame->[0]";
+  say "RSV1: $frame->[1]";
+  say "RSV2: $frame->[2]";
+  say "RSV3: $frame->[3]";
+  say "Opcode: $frame->[4]";
+  say "Payload: $frame->[5]";
+
+=head2 server_handshake
+
+  my $tx = server_handshake Mojo::Transaction::HTTP->new;
+
+Perform WebSocket handshake server-side.
+
+=head1 CONSTANTS
+
+L<Mojo::WebSocket> implements the following constants, which can be imported
+individually.
+
+=head2 WS_BINARY
+
+Opcode for C<Binary> frames.
+
+=head2 WS_CLOSE
+
+Opcode for C<Close> frames.
+
+=head2 WS_CONTINUATION
+
+Opcode for C<Continuation> frames.
+
+=head2 WS_PING
+
+Opcode for C<Ping> frames.
+
+=head2 WS_PONG
+
+Opcode for C<Pong> frames.
+
+=head2 WS_TEXT
+
+Opcode for C<Text> frames.
+
+=head1 DEBUGGING
+
+You can set the C<MOJO_WEBSOCKET_DEBUG> environment variable to get some
+advanced diagnostics information printed to C<STDERR>.
+
+  MOJO_WEBSOCKET_DEBUG=1
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

@@ -1,0 +1,106 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::JSON - Minimalistic JSON
+
+=head1 SYNOPSIS
+
+  use Mojo::JSON qw(decode_json encode_json);
+
+  my $bytes = encode_json {foo => [1, 2], bar => 'hello!', baz => \1};
+  my $hash  = decode_json $bytes;
+
+=head1 DESCRIPTION
+
+L<Mojo::JSON> is a minimalistic and possibly the fastest pure-Perl
+implementation of L<RFC 8259|http://tools.ietf.org/html/rfc8259>.
+
+It supports normal Perl data types like scalar, array reference, hash reference
+and will try to call the C<TO_JSON> method on blessed references, or stringify
+them if it doesn't exist. Differentiating between strings and numbers in Perl
+is hard, depending on how it has been used, a scalar can be both at the same
+time. The string value has a higher precedence unless both representations are
+equivalent.
+
+  [1, -2, 3]     -> [1, -2, 3]
+  {"foo": "bar"} -> {foo => 'bar'}
+
+Literal names will be translated to and from L<Mojo::JSON> constants or a
+similar native Perl value.
+
+  true  -> Mojo::JSON->true
+  false -> Mojo::JSON->false
+  null  -> undef
+
+In addition scalar references will be used to generate booleans, based on if
+their values are true or false.
+
+  \1 -> true
+  \0 -> false
+
+The character C</> will always be escaped to prevent XSS attacks.
+
+  "</script>" -> "<\/script>"
+
+For better performance the optional module L<Cpanel::JSON::XS> (4.04+) will be
+used automatically if possible. This can also be disabled with the
+C<MOJO_NO_JSON_XS> environment variable.
+
+=head1 FUNCTIONS
+
+L<Mojo::JSON> implements the following functions, which can be imported
+individually.
+
+=head2 decode_json
+
+  my $value = decode_json $bytes;
+
+Decode JSON to Perl value and die if decoding fails.
+
+=head2 encode_json
+
+  my $bytes = encode_json {i => '♥ mojolicious'};
+
+Encode Perl value to JSON.
+
+=head2 false
+
+  my $false = false;
+
+False value, used because Perl has no native equivalent.
+
+=head2 from_json
+
+  my $value = from_json $chars;
+
+Decode JSON text that is not C<UTF-8> encoded to Perl value and die if decoding
+fails.
+
+=head2 j
+
+  my $bytes = j [1, 2, 3];
+  my $bytes = j {i => '♥ mojolicious'};
+  my $value = j $bytes;
+
+Encode Perl data structure (which may only be an array reference or hash
+reference) or decode JSON, an C<undef> return value indicates a bare C<null> or
+that decoding failed.
+
+=head2 to_json
+
+  my $chars = to_json {i => '♥ mojolicious'};
+
+Encode Perl value to JSON text without C<UTF-8> encoding it.
+
+=head2 true
+
+  my $true = true;
+
+True value, used because Perl has no native equivalent.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

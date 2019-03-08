@@ -1,0 +1,114 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Content::MultiPart - HTTP multipart content
+
+=head1 SYNOPSIS
+
+  use Mojo::Content::MultiPart;
+
+  my $multi = Mojo::Content::MultiPart->new;
+  $multi->parse('Content-Type: multipart/mixed; boundary=---foobar');
+  my $single = $multi->parts->[4];
+
+=head1 DESCRIPTION
+
+L<Mojo::Content::MultiPart> is a container for HTTP multipart content, based on
+L<RFC 7230|http://tools.ietf.org/html/rfc7230>,
+L<RFC 7231|http://tools.ietf.org/html/rfc7231> and
+L<RFC 2388|http://tools.ietf.org/html/rfc2388>.
+
+=head1 EVENTS
+
+L<Mojo::Content::Multipart> inherits all events from L<Mojo::Content> and can
+emit the following new ones.
+
+=head2 part
+
+  $multi->on(part => sub {
+    my ($multi, $single) = @_;
+    ...
+  });
+
+Emitted when a new L<Mojo::Content::Single> part starts.
+
+  $multi->on(part => sub {
+    my ($multi, $single) = @_;
+    return unless $single->headers->content_disposition =~ /name="([^"]+)"/;
+    say "Field: $1";
+  });
+
+=head1 ATTRIBUTES
+
+L<Mojo::Content::MultiPart> inherits all attributes from L<Mojo::Content> and
+implements the following new ones.
+
+=head2 parts
+
+  my $parts = $multi->parts;
+  $multi    = $multi->parts([Mojo::Content::Single->new]);
+
+Content parts embedded in this multipart content, usually
+L<Mojo::Content::Single> objects.
+
+=head1 METHODS
+
+L<Mojo::Content::MultiPart> inherits all methods from L<Mojo::Content> and
+implements the following new ones.
+
+=head2 body_contains
+
+  my $bool = $multi->body_contains('foobarbaz');
+
+Check if content parts contain a specific string.
+
+=head2 body_size
+
+  my $size = $multi->body_size;
+
+Content size in bytes.
+
+=head2 build_boundary
+
+  my $boundary = $multi->build_boundary;
+
+Generate a suitable boundary for content and add it to C<Content-Type> header.
+
+=head2 clone
+
+  my $clone = $multi->clone;
+
+Return a new L<Mojo::Content::MultiPart> object cloned from this content if
+possible, otherwise return C<undef>.
+
+=head2 get_body_chunk
+
+  my $bytes = $multi->get_body_chunk(0);
+
+Get a chunk of content starting from a specific position. Note that it might
+not be possible to get the same chunk twice if content was generated
+dynamically.
+
+=head2 is_multipart
+
+  my $bool = $multi->is_multipart;
+
+True, this is a L<Mojo::Content::MultiPart> object.
+
+=head2 new
+
+  my $multi = Mojo::Content::MultiPart->new;
+  my $multi
+    = Mojo::Content::MultiPart->new(parts => [Mojo::Content::Single->new]);
+  my $multi
+    = Mojo::Content::MultiPart->new({parts => [Mojo::Content::Single->new]});
+
+Construct a new L<Mojo::Content::MultiPart> object and subscribe to L</"read">
+event with default content parser.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut

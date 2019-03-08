@@ -1,0 +1,228 @@
+=encoding utf8
+
+=head1 NAME
+
+Mojo::Message::Request - HTTP request
+
+=head1 SYNOPSIS
+
+  use Mojo::Message::Request;
+
+  # Parse
+  my $req = Mojo::Message::Request->new;
+  $req->parse("GET /foo HTTP/1.0\x0d\x0a");
+  $req->parse("Content-Length: 12\x0d\x0a");
+  $req->parse("Content-Type: text/plain\x0d\x0a\x0d\x0a");
+  $req->parse('Hello World!');
+  say $req->method;
+  say $req->headers->content_type;
+  say $req->body;
+
+  # Build
+  my $req = Mojo::Message::Request->new;
+  $req->url->parse('http://127.0.0.1/foo/bar');
+  $req->method('GET');
+  say $req->to_string;
+
+=head1 DESCRIPTION
+
+L<Mojo::Message::Request> is a container for HTTP requests, based on
+L<RFC 7230|http://tools.ietf.org/html/rfc7230>,
+L<RFC 7231|http://tools.ietf.org/html/rfc7231>,
+L<RFC 7235|http://tools.ietf.org/html/rfc7235> and
+L<RFC 2817|http://tools.ietf.org/html/rfc2817>.
+
+=head1 EVENTS
+
+L<Mojo::Message::Request> inherits all events from L<Mojo::Message>.
+
+=head1 ATTRIBUTES
+
+L<Mojo::Message::Request> inherits all attributes from L<Mojo::Message> and
+implements the following new ones.
+
+=head2 env
+
+  my $env = $req->env;
+  $req    = $req->env({PATH_INFO => '/'});
+
+Direct access to the C<CGI> or C<PSGI> environment hash if available.
+
+  # Check CGI version
+  my $version = $req->env->{GATEWAY_INTERFACE};
+
+  # Check PSGI version
+  my $version = $req->env->{'psgi.version'};
+
+=head2 method
+
+  my $method = $req->method;
+  $req       = $req->method('POST');
+
+HTTP request method, defaults to C<GET>.
+
+=head2 proxy
+
+  my $url = $req->proxy;
+  $req    = $req->proxy(Mojo::URL->new('http://127.0.0.1:3000'));
+
+Proxy URL for request.
+
+=head2 reverse_proxy
+
+  my $bool = $req->reverse_proxy;
+  $req     = $req->reverse_proxy($bool);
+
+Request has been performed through a reverse proxy.
+
+=head2 request_id
+
+  my $id = $req->request_id;
+  $req   = $req->request_id('aee7d5d8');
+
+Request ID, defaults to a reasonably unique value.
+
+=head2 url
+
+  my $url = $req->url;
+  $req    = $req->url(Mojo::URL->new);
+
+HTTP request URL, defaults to a L<Mojo::URL> object.
+
+  # Get request information
+  my $info = $req->url->to_abs->userinfo;
+  my $host = $req->url->to_abs->host;
+  my $path = $req->url->to_abs->path;
+
+=head2 via_proxy
+
+  my $bool = $req->via_proxy;
+  $req     = $req->via_proxy($bool);
+
+Request can be performed through a proxy server.
+
+=head1 METHODS
+
+L<Mojo::Message::Request> inherits all methods from L<Mojo::Message> and
+implements the following new ones.
+
+=head2 clone
+
+  my $clone = $req->clone;
+
+Return a new L<Mojo::Message::Request> object cloned from this request if
+possible, otherwise return C<undef>.
+
+=head2 cookies
+
+  my $cookies = $req->cookies;
+  $req        = $req->cookies(Mojo::Cookie::Request->new);
+  $req        = $req->cookies({name => 'foo', value => 'bar'});
+
+Access request cookies, usually L<Mojo::Cookie::Request> objects.
+
+  # Names of all cookies
+  say $_->name for @{$req->cookies};
+
+=head2 every_param
+
+  my $values = $req->every_param('foo');
+
+Similar to L</"param">, but returns all values sharing the same name as an
+array reference.
+
+  # Get first value
+  say $req->every_param('foo')->[0];
+
+=head2 extract_start_line
+
+  my $bool = $req->extract_start_line(\$str);
+
+Extract request-line from string.
+
+=head2 fix_headers
+
+  $req = $req->fix_headers;
+
+Make sure request has all required headers.
+
+=head2 get_start_line_chunk
+
+  my $bytes = $req->get_start_line_chunk($offset);
+
+Get a chunk of request-line data starting from a specific position. Note that
+this method finalizes the request.
+
+=head2 is_handshake
+
+  my $bool = $req->is_handshake;
+
+Check C<Upgrade> header for C<websocket> value.
+
+=head2 is_secure
+
+  my $bool = $req->is_secure;
+
+Check if connection is secure.
+
+=head2 is_xhr
+
+  my $bool = $req->is_xhr;
+
+Check C<X-Requested-With> header for C<XMLHttpRequest> value.
+
+=head2 param
+
+  my $value = $req->param('foo');
+
+Access C<GET> and C<POST> parameters extracted from the query string and
+C<application/x-www-form-urlencoded> or C<multipart/form-data> message body. If
+there are multiple values sharing the same name, and you want to access more
+than just the last one, you can use L</"every_param">. Note that this method
+caches all data, so it should not be called before the entire request body has
+been received. Parts of the request body need to be loaded into memory to parse
+C<POST> parameters, so you have to make sure it is not excessively large.
+There's a 16MiB limit for requests by default.
+
+=head2 params
+
+  my $params = $req->params;
+
+All C<GET> and C<POST> parameters extracted from the query string and
+C<application/x-www-form-urlencoded> or C<multipart/form-data> message body,
+usually a L<Mojo::Parameters> object. Note that this method caches all data, so
+it should not be called before the entire request body has been received. Parts
+of the request body need to be loaded into memory to parse C<POST> parameters,
+so you have to make sure it is not excessively large. There's a 16MiB limit for
+requests by default.
+
+  # Get parameter names and values
+  my $hash = $req->params->to_hash;
+
+=head2 parse
+
+  $req = $req->parse('GET /foo/bar HTTP/1.1');
+  $req = $req->parse({PATH_INFO => '/'});
+
+Parse HTTP request chunks or environment hash.
+
+=head2 query_params
+
+  my $params = $req->query_params;
+
+All C<GET> parameters, usually a L<Mojo::Parameters> object.
+
+  # Turn GET parameters to hash and extract value
+  say $req->query_params->to_hash->{foo};
+
+=head2 start_line_size
+
+  my $size = $req->start_line_size;
+
+Size of the request-line in bytes. Note that this method finalizes the request.
+
+=head1 SEE ALSO
+
+L<Mojolicious>, L<Mojolicious::Guides>, L<https://mojolicious.org>.
+
+=cut
