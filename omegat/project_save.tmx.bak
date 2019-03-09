@@ -22,6 +22,14 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg># /test</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071402Z" creationid="mokoo" creationdate="20190309T071402Z">
+        <seg># /test</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg># A helper to identify visitors</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -64,8 +72,8 @@
       <tuv lang="EN">
         <seg># Authenticated</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg># 認証されなた</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071720Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg># 認証された</seg>
       </tuv>
     </tu>
     <tu>
@@ -118,6 +126,14 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg># Display message</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T074716Z" creationid="mokoo" creationdate="20190309T074716Z">
+        <seg># メッセージを表示する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg># Echo the request body and send custom header with response</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -162,6 +178,22 @@
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190210T051556Z" creationid="mokoo" creationdate="20190210T051556Z">
         <seg># HTTP/WebSocket ユーザエージェント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># Increase limit to 1GiB</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T122321Z" creationid="mokoo" creationdate="20190309T122321Z">
+        <seg># 制限を1GBに増やす</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># Load message into memory</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T074707Z" creationid="mokoo" creationdate="20190309T074707Z">
+        <seg># メッセージをメモリに読み込む</seg>
       </tuv>
     </tu>
     <tu>
@@ -224,16 +256,16 @@
       <tuv lang="EN">
         <seg># Prepare mode specific message during startup</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg># startupの間にモードに特有のメッセージを準備する</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T124820Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg># startupの間にモードに応じたメッセージを準備する</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN">
         <seg># Process uploaded file</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg># アップロードされたファイルを処理</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T115659Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg># アップロードしたファイルを処理</seg>
       </tuv>
     </tu>
     <tu>
@@ -302,6 +334,14 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg># Use @ARGV to pick a command</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T132312Z" creationid="mokoo" creationdate="20190309T132312Z">
+        <seg># @ARGVを使ってコマンドを取得する</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg># Use helper in action and template</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -328,8 +368,8 @@
       <tuv lang="EN">
         <seg>$ ./myapp.pl get /</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T062233Z" creationid="mokoo" creationdate="20190309T062233Z">
-        <seg>=head2 Hello World!</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131823Z" creationid="mokoo" creationdate="20190309T062233Z">
+        <seg>$ ./myapp.pl get /</seg>
       </tuv>
     </tu>
     <tu>
@@ -592,8 +632,8 @@
       <tuv lang="EN">
         <seg>...List of available commands (or automatically detected environment)...</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>...利用可能なコマンドが表示(あるいは自動的に環境が検知される)...</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131906Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>...利用可能なコマンドを表示(あるいは自動的に検知された環境)...</seg>
       </tuv>
     </tu>
     <tu>
@@ -602,6 +642,14 @@
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190210T051725Z" creationid="mokoo" creationdate="20190210T051725Z">
         <seg>=head1 説明</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head1 MORE</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125953Z" creationid="mokoo" creationdate="20190309T125953Z">
+        <seg>=head1 もっと詳しく</seg>
       </tuv>
     </tu>
     <tu>
@@ -664,8 +712,8 @@
       <tuv lang="EN">
         <seg>=head2 Conditions</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>=head2 条件</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T080015Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>=head2 条件分岐</seg>
       </tuv>
     </tu>
     <tu>
@@ -718,10 +766,26 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>=head2 Hello World</seg>
+      </tuv>
+      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>=head2 Hello World!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>=head2 Helpers</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>=head2 ヘルパー</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head2 Home</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T074033Z" creationid="mokoo" creationdate="20190309T074033Z">
+        <seg>=head2 ホーム</seg>
       </tuv>
     </tu>
     <tu>
@@ -744,8 +808,8 @@
       <tuv lang="EN">
         <seg>=head2 Optional placeholders</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>=head2 オプショナルなプレースホルダー</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071112Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>=head2 プレースホルダーのオプション</seg>
       </tuv>
     </tu>
     <tu>
@@ -824,8 +888,8 @@
       <tuv lang="EN">
         <seg>=head2 Testing</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>アプリケーションのテストをするのはとても簡単です。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125754Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>=head2 テスト</seg>
       </tuv>
     </tu>
     <tu>
@@ -842,6 +906,14 @@
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>=head2 ユーザーエージェント</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head2 WebSockets</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T122822Z" creationid="mokoo" creationdate="20190309T122822Z">
+        <seg>=head2 WebSocket</seg>
       </tuv>
     </tu>
     <tu>
@@ -866,8 +938,8 @@
 system, should be the last expression in your application, because its return
 value can be significant.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T063440Z" creationid="mokoo" creationdate="20190309T063440Z">
-        <seg>L&lt;Mojolicious/"start"&gt; (C&lt;app-E&lt;gt&gt;start&gt;)コールによってコマンドシステムが開始します。これはアプリケーションの最後の処理になります。返り値が重要になるからです。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T132230Z" creationid="mokoo" creationdate="20190309T063440Z">
+        <seg>コマンドシステムを開始するL&lt;Mojolicious/"start"&gt; (C&lt;app-E&lt;gt&gt;start&gt;)の呼び出しは、アプリケーションの最後の処理とするべきです。というのは、返り値が大きな影響をもつ場合があるからです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -884,11 +956,20 @@ generated.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>A list of all built-in ones can be found in
+L&lt;Mojolicious::Plugin::DefaultHelpers&gt; and L&lt;Mojolicious::Plugin::TagHelpers&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070724Z" creationid="mokoo" creationdate="20190309T070724Z">
+        <seg>組み込みヘルパーすべてのリストは L&lt;Mojolicious::Plugin::DefaultHelpers&gt; と L&lt;Mojolicious::Plugin::TagHelpers&gt;にあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>A mode other than C&lt;development&gt; will raise the log level from
 C&lt;debug&gt; to C&lt;info&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>C&lt;development&gt;モード以外のモードでは、C&lt;debug&gt;からC&lt;info&gt;のログレベルにあがります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125105Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>C&lt;development&gt;以外のモードではログレベルがC&lt;debug&gt;からC&lt;info&gt;に上がります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -905,8 +986,8 @@ L&lt;Mojolicious&gt;.</seg>
       <tuv lang="EN">
         <seg>A quick example-driven introduction to the wonders of L&lt;Mojolicious::Lite&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T022704Z" creationid="mokoo" creationdate="20190309T022704Z">
-        <seg>[[Mojolicious::Lite]]がどのようなものかを紹介するためのすばやいサンプルです。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T130533Z" creationid="mokoo" creationdate="20190309T022704Z">
+        <seg>[[Mojolicious::Lite]]の特徴を簡潔なサンプルで紹介します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -916,11 +997,20 @@ L&lt;utf8&gt; and Perl 5.10 L&lt;features|feature&gt; are automatically enabled 
 L&lt;functions|Mojolicious::Lite/"FUNCTIONS"&gt; imported, when you use
 L&lt;Mojolicious::Lite&gt;, turning your script into a full featured web application.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T061851Z" creationid="mokoo" creationdate="20190309T061314Z">
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131414Z" creationid="mokoo" creationdate="20190309T061314Z">
         <seg>かんたんなHello Worldアプリケーションはこのようになります。L&lt;strict&gt;, L&lt;warnings&gt;,
-L&lt;utf8&gt; 、Perl 5.10 L&lt;features|feature&gt; の機能は自動的に有効になり、
+L&lt;utf8&gt; 、Perl 5.10のL&lt;features|feature&gt; が自動的に有効になり、
 L&lt;functions|Mojolicious::Lite/"FUNCTIONS"&gt; がいくつかインポートされます。
-L&lt;Mojolicious::Lite&gt;を使うときにあなたのスクリプトを完全な機能を備えたウェブアプリケーションに変えます。</seg>
+L&lt;Mojolicious::Lite&gt;を使うと、あなたのスクリプトは完全な機能を備えたウェブアプリケーションになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>A very easy way to make placeholders more restrictive are alternatives, you just
+make a list of possible values.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071357Z" creationid="mokoo" creationdate="20190309T071357Z">
+        <seg>プレースホルダーにより多くの制約を加えるには、選択肢を使うのがもっとも簡単です。候補となる値のリストを作るだけでOKです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -934,11 +1024,21 @@ L&lt;Mojolicious::Controller/"param"&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>All files uploaded via C&lt;multipart/form-data&gt; request are automatically
+available as L&lt;Mojo::Upload&gt; objects from L&lt;Mojolicious::Controller/"param"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T115529Z" creationid="mokoo" creationdate="20190309T115529Z">
+        <seg>C&lt;multipart/form-data&gt;リクエストを通してアップロードされたすべてのファイルは自動的に
+ L&lt;Mojolicious::Controller/"param"&gt;の中で[[Mojo::Upload]]のインスタンスとして利用可能になります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>All following routes are
 only evaluated if the callback returned a true value.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>すべての続くルーティングはunderコールバックが真値を返したときだけ評価されます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071706Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>続くルーティングの全部はunderコールバックが真値を返したときだけ評価されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -946,9 +1046,9 @@ only evaluated if the callback returned a true value.</seg>
         <seg>All messages will be written to C&lt;STDERR&gt; or a C&lt;log/$mode.log&gt; file if a
 C&lt;log&gt; directory exists.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125139Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>すべてのメッセージはC&lt;STDERR&gt;に出力されるか、
-C&lt;log&gt;ディレクトリが存在している場合はC&lt;log/$mode.log&gt;に出力されます。</seg>
+C&lt;log&gt;ディレクトリが存在する場合はC&lt;log/$mode.log&gt;に出力されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -978,8 +1078,8 @@ detection and backreferencing with L&lt;Mojolicious::Controller/"url_for"&gt;, o
 which many methods and helpers like
 L&lt;Mojolicious::Plugin::TagHelpers/"link_to"&gt; rely.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>すべてのルーティング(routes)は関連付けられた名前を持つことができます。名前を付けておけばテンプレートの自動的な検索や[[Mojolicious::Controller]]のC&lt;url_for&gt;によるバックリファレンスや[[Mojolicious::Plugin::TagHelpers]]のC&lt;link_to&gt;などの多くのヘルパーを使ったりすることができます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T065059Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>すべてのルーティング(routes)は関連付けられた名前を持つことができます。名前を付けておけばテンプレートの自動的な検索や[[Mojolicious::Controller]]のC&lt;url_for&gt;による逆引きや[[Mojolicious::Plugin::TagHelpers]]のC&lt;link_to&gt;などの多くのヘルパーを使ったりすることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -987,8 +1087,27 @@ L&lt;Mojolicious::Plugin::TagHelpers/"link_to"&gt; rely.</seg>
         <seg>Almost everything you'll learn here also applies to full L&lt;Mojolicious&gt;
 applications.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>ここで学んだことのほとんどすべて普通の[[Mojolicious]]アプリケーションに適用できるでしょう。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T130057Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>ここで学んだことのほとんどすべてがフルバージョンの[[Mojolicious]]アプリケーションに適用できるでしょう。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>And don't worry about revealing too much information on these pages, they are
+only available during development, and will be replaced automatically with pages
+that don't reveal any sensitive information in a production environment.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T065042Z" creationid="mokoo" creationdate="20190309T065042Z">
+        <seg>ページでたくさんの情報が明らかになるといっても心配しないでください。これは開発中にだけオンになります。プロダクション環境では、大切な情報を見せないページへと自動的に置き換わります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>And you don't have to worry about memory usage, because all files above 250KiB
+will be automatically streamed into a temporary file.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T115318Z" creationid="mokoo" creationdate="20190309T115318Z">
+        <seg>メモリの使用率を気にする必要はありません。C&lt;250KB&gt;を超えるすべてのファイルは自動的に一時ファイルに保存されるからです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -996,8 +1115,8 @@ applications.</seg>
         <seg>Authentication and code shared between multiple routes can be realized easily
 with routes generated by L&lt;Mojolicious::Lite/"under"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>認証や複数のルーティングの間でコードの共有はC&lt;under&gt;構文を使うことで簡単に実現できます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071614Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>認証や複数のルーティングの間でコードを共有するにはC&lt;under&gt;構文を使うことで簡単に実現できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1013,8 +1132,8 @@ with routes generated by L&lt;Mojolicious::Lite/"under"&gt;.</seg>
         <seg>CGI and L&lt;PSGI&gt; environments can even be
 detected and will usually just work without commands.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T062313Z" creationid="mokoo" creationdate="20190309T062157Z">
-        <seg>CGIとL&lt;PSGI&gt; の環境は自動的に検知されるため、通常はコマンドなしで機能します。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131810Z" creationid="mokoo" creationdate="20190309T062157Z">
+        <seg>しかも、CGIまたはL&lt;PSGI&gt; のどちらの環境であるかが自動的に検知されるため、通常は指定なしで機能します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1023,9 +1142,9 @@ detected and will usually just work without commands.</seg>
 L&lt;Mojolicious::Plugin::HeaderCondition&gt; allow even more powerful route
 constructs.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>[[Mojolicious::Plugin::HeaderCondition]]からC&lt;agent&gt;やC&lt;host&gt;のような条件
-を使用すればより強力なルーティングを構築することができます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T114712Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>[[Mojolicious::Plugin::HeaderCondition]]からC&lt;agent&gt;やC&lt;host&gt;といった条件
+を使用すれば、より強力なルーティングを構築することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1038,6 +1157,15 @@ L&lt;Mojolicious::Command::get&gt;.</seg>
         <seg>C&lt;Range&gt;, C&lt;If-None-Match&gt;、C&lt;If-Modified-Since&gt;ヘッダー
 によるコンテンツネゴシエーションがサポートされ、
 [[Mojolicious::Command::get]]で簡単に試験できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Cookie-based sessions just work out of the box, as soon as you start using them
+through the helper L&lt;Mojolicious::Plugin::DefaultHelpers/"session"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T115221Z" creationid="mokoo" creationdate="20190309T080214Z">
+        <seg>[[Mojolicious::Plugin::DefaultHelpers]]のC&lt;session&gt;ヘルパーを使うとすぐに、クッキーをベースとしたセッションが機能します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1067,8 +1195,8 @@ in debugging your application.</seg>
         <seg>Especially in combination with
 L&lt;Mojo::JSON&gt; and L&lt;Mojo::DOM&gt; this can be a very powerful tool.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>特に[[Mojo::JSON]]と[[Mojo::DOM]]の組み合わせはとても強力なツールです。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T122609Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>特に[[Mojo::JSON]]と[[Mojo::DOM]]の組み合わせはとても強力なツールになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1083,12 +1211,30 @@ C&lt;public&gt;ディレクトリが存在すれば自動的にサーブされ�
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>External templates will be searched by the renderer in a C&lt;templates&gt; directory
+if it exists.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T073945Z" creationid="mokoo" creationdate="20190309T073941Z">
+        <seg>外部テンプレートは C&lt;templates&gt; ディレクトリの中からレンダラーによって検索されます。 </seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>For more information about how to deploy your application see also
 L&lt;Mojolicious::Guides::Cookbook/"DEPLOYMENT"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>アプリケーションをどのようにデプロイするかの情報は、
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T132518Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>アプリケーションのデプロイ方法について詳しい情報は、
 [[Mojolicious::Guides::Cookbook]]のC&lt;デプロイメント&gt;の項目を見てください。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>For more information about real-time web features see also
+L&lt;Mojolicious::Guides::Cookbook/"REAL-TIME WEB"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T123251Z" creationid="mokoo" creationdate="20190309T123210Z">
+        <seg>リアルタイムウェブ機能についてのより詳しい情報はL&lt;Mojolicious::Guides::Cookbook/"REAL-TIME WEB"&gt;にあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1106,8 +1252,19 @@ L&lt;Mojolicious::Guides::Rendering/"Embedded Perl"&gt;.</seg>
         <seg>For more information about the user agent see also
 L&lt;Mojolicious::Guides::Cookbook/"USER AGENT"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>ユーザーエージェントについてのより多くの情報は[[Mojolicious::Guides::Cookbook]]のC&lt;ユーザーエージェント&gt;の項目にあります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T123237Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>ユーザーエージェントについてより詳しい情報は[[Mojolicious::Guides::Cookbook]]のC&lt;ユーザーエージェント&gt;の項目にあります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>For resources with different representations and that require truly RESTful
+content negotiation you can also use
+L&lt;Mojolicious::Plugin::DefaultHelpers/"respond_to"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T073233Z" creationid="mokoo" creationdate="20190309T073233Z">
+        <seg>異なる表現のリソースの表現や本当のRESTfulなコンテントネゴーシエーションの必要のために、
+L&lt;Mojolicious::Plugin::DefaultHelpers/"respond_to"&gt;を使用することもできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1116,8 +1273,8 @@ L&lt;Mojolicious::Guides::Cookbook/"USER AGENT"&gt;.</seg>
 are used to find the right template and generate the correct C&lt;Content-Type&gt;
 header.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>「フォーマット(formats)」はファイルの拡張子を見ることによって自動的に検出されます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T072911Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>「フォーマット(formats)」はC&lt;.html&gt;などのファイル拡張子によって自動的に検出されます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1126,6 +1283,16 @@ header.</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190309T062215Z" creationid="mokoo" creationdate="20190309T062215Z">
         <seg>Hello World!</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Helpers are little functions you can create with the keyword
+L&lt;Mojolicious::Lite/"helper"&gt; and reuse throughout your whole application, from
+actions to templates.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070601Z" creationid="mokoo" creationdate="20190309T070601Z">
+        <seg>ヘルパーは L&lt;Mojolicious::Lite/"helper"&gt; キーワードを付けて作れる小さな関数です。アクションからテンプレートまでアプリケーション全体において利用することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1145,8 +1312,8 @@ header.</seg>
         <seg>It is highly encouraged
 that readers continue on to the remaining guides after reading this one.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T060701Z" creationid="mokoo" creationdate="20190309T060701Z">
-        <seg>これを読み終わった後は残りのガイドを読む進めるのを強くおすすめします。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131052Z" creationid="mokoo" creationdate="20190309T060701Z">
+        <seg>これを読み終わった後は、のこりのガイドを読む進めることを強くおすすめします。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1163,8 +1330,8 @@ that readers continue on to the remaining guides after reading this one.</seg>
 aware that all session data gets serialized with L&lt;Mojo::JSON&gt; and stored
 client-side, with a cryptographic signature to prevent tampering.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>すべてのセッションデータは[[Mojo::JSON]]でシリアライズされており、
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T115252Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>すべてのセッションデータは[[Mojo::JSON]]でシリアライズされ、
 クライアントサイドに保存されることを意識しておいてください。改ざんを防ぐために、暗号化された署名がついています。</seg>
       </tuv>
     </tu>
@@ -1184,8 +1351,16 @@ messages by subscribing to events such as
 L&lt;Mojo::Transaction::WebSocket/"json"&gt; with L&lt;Mojolicious::Controller/"on"&gt; and
 return them with L&lt;Mojolicious::Controller/"send"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>[[Mojo::Transaction::WebSocket]]のC&lt;json&gt;と同じイベントを、[[Mojolicious::Controller]]のC&lt;on&gt;を使って購読することによってメッセージを受信することができます。[[Mojolicious::Controller]]のC&lt;send&gt;を使ってメッセージを返却することもできます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T123117Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>[[Mojo::Transaction::WebSocket]]のC&lt;json&gt;と同じイベントを、[[Mojolicious::Controller]]のC&lt;on&gt;を使って購読することによってメッセージを受信できます。メッセージを送信するには、[[Mojolicious::Controller]]のC&lt;send&gt;を使います。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Just run your tests with L&lt;prove&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125940Z" creationid="mokoo" creationdate="20190309T125940Z">
+        <seg>テストはL&lt;prove&gt;で実行します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1213,8 +1388,8 @@ L&lt;Mojo::Message/"json"&gt; as well as the reserved stash value C&lt;json&gt;.
         <seg>MIME type mappings can be extended or changed easily with
 L&lt;Mojolicious/"types"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>MIMEタイプのマッピンは、[[Mojolicious]]のC&lt;types&gt;によって、拡張したり、変更したりすることができます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T073249Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>MIMEタイプのマッピングは、[[Mojolicious]]のC&lt;types&gt;によって、拡張したり、変更したりすることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1222,8 +1397,18 @@ L&lt;Mojolicious/"types"&gt;.</seg>
         <seg>Many different L&lt;commands|Mojolicious::Commands/"COMMANDS"&gt; are automatically
 available from the command line.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T062059Z" creationid="mokoo" creationdate="20190309T062059Z">
-        <seg>たくさんのL&lt;commands|Mojolicious::Commands/"COMMANDS"&gt; が自動的にコマンドラインで利用できるようになります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131530Z" creationid="mokoo" creationdate="20190309T062059Z">
+        <seg>多くのL&lt;commands|Mojolicious::Commands/"COMMANDS"&gt; が自動的にコマンドラインから利用できるようになります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Mode changes also affect a few other aspects of the framework, such as the
+built-in C&lt;exception&gt; and C&lt;not_found&gt; pages.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125611Z" creationid="mokoo" creationdate="20190309T125611Z">
+        <seg>モードの変更は、C&lt;exception&gt;やC&lt;not_found&gt;テンプレートなど、
+フレームワークのその他の面にいくつか影響します。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1247,9 +1432,18 @@ available from the command line.</seg>
         <seg>Nameless routes get an automatically generated one assigned that is simply
 equal to the route itself without non-word characters.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>名前のないルートが、自動的に生成されます。この名前は、ルート自身の名前から、ノンワード文字を取り除いたもの
-と等しくなります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070014Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>名前のないルートが、自動的に生成されます。この名前は、ルート自身の名前から、ノンワード文字を取り除いたものと等しくなります。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>Once you switch modes from
+C&lt;development&gt; to C&lt;production&gt;, no sensitive information will be revealed on
+those pages anymore.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125743Z" creationid="mokoo" creationdate="20190309T125713Z">
+        <seg>モードをC&lt;development&gt;からC&lt;production&gt;に切り替えると 、例外ページに機密情報が表示されなくなります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1269,10 +1463,9 @@ prototype into a well-structured L&lt;Mojolicious&gt; application,
 L&lt;routing|Mojolicious::Guides::Routing&gt;,
 L&lt;rendering|Mojolicious::Guides::Rendering&gt; and more.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T034316Z" creationid="mokoo" creationdate="20190309T023442Z">
-        <seg>その他のガイドでは、L&lt;growing|Mojolicious::Guides::Growing&gt;のようにL&lt;Mojolicious::Lite&gt;のプロトタイプをよく構築されたL&lt;Mojolicious&gt; アプリケーションに成長させるものだったり、
-L&lt;routing|Mojolicious::Guides::Routing&gt;、
-L&lt;rendering|Mojolicious::Guides::Rendering&gt;、その他さまざまなものがあります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T130934Z" creationid="mokoo" creationdate="20190309T023442Z">
+        <seg>その他のガイドでは各トピックについて深く掘り下げます。たとえば、L&lt;Mojolicious::Lite&gt;のプロトタイプをしっかりと構築したL&lt;Mojolicious&gt; アプリケーションに育てるためのL&lt;growing|Mojolicious::Guides::Growing&gt;、L&lt;routing|Mojolicious::Guides::Routing&gt;、
+L&lt;rendering|Mojolicious::Guides::Rendering&gt;、その他にもたくさんあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1288,9 +1481,9 @@ L&lt;rendering|Mojolicious::Guides::Rendering&gt;、その他さまざまなも�
         <seg>Relaxed placeholders allow matching of everything until a C&lt;/&gt; occurs, similar
 to the regular expression C&lt;([^/]+)&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070948Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>リラックスプレースホルダーを使えば、
-C&lt;/&gt;が出現するまでのすべてにマッチさせることができます。</seg>
+C&lt;/&gt;が出現するまでのすべてにマッチさせることができます。正規表現のC&lt;([^/]+)&gt;と同様です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1336,6 +1529,15 @@ request URL.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>Routes can be restricted to specific request methods with different keywords
+like L&lt;Mojolicious::Lite/"get"&gt; and L&lt;Mojolicious::Lite/"any"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071053Z" creationid="mokoo" creationdate="20190309T071053Z">
+        <seg>ルーティングは L&lt;Mojolicious::Lite/"get"&gt; や L&lt;Mojolicious::Lite/"any"&gt;といったキーワードを使って特定のリクエストメソッドに限定することができます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>See L&lt;Mojolicious::Guides&gt; for more!</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190210T051941Z" creationid="mokoo" creationdate="20190210T051941Z">
@@ -1364,8 +1566,8 @@ request URL.</seg>
 encoding, static files can be inlined in the C&lt;DATA&gt; section and are served
 automatically.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>テンプレートと似ていますが、単一の拡張子とBase64エンコーディングに限られますが、静的ファイルはC&lt;DATA&gt;セクションの中に、インラインで記述することができます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T073339Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>テンプレートに似て、単一の拡張子とBase64エンコーディングに限られますが、静的ファイルはC&lt;DATA&gt;セクションの中に、インラインで記述することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1386,8 +1588,8 @@ L&lt;Mojo::IOLoop&gt; and L&lt;Mojo::Template&gt;</seg>
         <seg>Template blocks can be used like normal Perl functions and are always delimited
 by the C&lt;begin&gt; and C&lt;end&gt; keywords, they are the foundation for many helpers.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>テンプレートブロックはPerlスクリプトにおける関数のように利用され、いつもC&lt;begin&gt;とC&lt;end&gt;というキーワードで区分されています。これらは、多くのヘルパーの基盤です。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070322Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>テンプレートブロックはPerlスクリプトにおける関数のように利用することができ、必ずC&lt;begin&gt;とC&lt;end&gt;というキーワードで区切ります。これらは、多くのヘルパーの基盤です。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1397,12 +1599,12 @@ L&lt;Mojolicious::Plugin::DefaultHelpers/"layout"&gt; and place the result of th
 current template with the helper
 L&lt;Mojolicious::Plugin::DefaultHelpers/"content"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070118Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>テンプレートはレイアウトを持つことができます。[[Mojolicious::Plugin::DefaultHelpers]]
 のC&lt;layout&gt;ヘルパーを使って、
-レイアウトの一つを選択することができ、
+レイアウトを選択することができ、
 [[Mojolicious::Plugin::DefaultHelpers]]のC&lt;content&gt;
-ヘルパーを使って、現在のテンプレートの結果を置換できます。</seg>
+ヘルパーを使って、現在のテンプレートの結果を入れることができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1411,8 +1613,8 @@ L&lt;Mojolicious::Plugin::DefaultHelpers/"content"&gt;.</seg>
 with normal Perl tests like C&lt;t/basic.t&gt;, which can be a lot of fun thanks to
 L&lt;Test::Mojo&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>C&lt;t&gt;ディレクトリを作成して
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125853Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>アプリケーションをテストするのはとても簡単です。C&lt;t&gt;ディレクトリを作成して
 普通のPerlの単体テストを書くだけです。[[Test::Mojo]]のおかげで、
 とても楽しいです。</seg>
       </tuv>
@@ -1428,12 +1630,22 @@ can be inlined in the C&lt;DATA&gt; section.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>The default format is C&lt;html&gt;, and restrictive placeholders can be used to
+limit possible values.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T073130Z" creationid="mokoo" creationdate="20190309T073118Z">
+        <seg>デフォルトのフォーマットは C&lt;html&gt;です。プレースホルダを制限することによって可能な値を限定できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>The default operating mode will usually be C&lt;development&gt; and can be changed
 with command line options or the C&lt;MOJO_MODE&gt; and C&lt;PLACK_ENV&gt; environment
 variables.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>デフォルトの処理モードは通常はC&lt;development&gt;ですが、コマンドラインオプションかC&lt;MOJO_MODE&gt;あるいはC&lt;PLACK_ENV&gt;環境変数で変更することもできます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T125054Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>デフォルトの処理モードは通常はC&lt;development&gt;ですが、コマンドラインオプションか
+C&lt;MOJO_MODE&gt;あるいはC&lt;PLACK_ENV&gt;環境変数によっても変更できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1458,18 +1670,77 @@ used to pass additional data to the layout.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>There are many useful methods L&lt;Mojo::Home&gt; inherits from L&lt;Mojo::File&gt;, like
+L&lt;Mojo::File/"child"&gt; and L&lt;Mojo::File/"slurp"&gt;, that will help you keep your
+application portable across many different operating systems.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T113640Z" creationid="mokoo" creationdate="20190309T074656Z">
+        <seg>L&lt;Mojo::Home&gt; には L&lt;Mojo::File&gt;から継承した便利なメソッドが多くあります。たとえば、L&lt;Mojo::File/"child"&gt;やL&lt;Mojo::File/"slurp"&gt;は、アプリケーションを様々なオペレーティングシステムで使用できるようにしています。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>They have a higher precedence than templates in the C&lt;DATA&gt; section.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T074026Z" creationid="mokoo" creationdate="20190309T074026Z">
+        <seg>これらはC&lt;DATA&gt;セクションのテンプレートよりも優先されます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>This is only the first of the L&lt;Mojolicious::Guides&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T022750Z" creationid="mokoo" creationdate="20190309T022750Z">
-        <seg>これはL&lt;Mojolicious::Guides&gt;の最初の部分です。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T130558Z" creationid="mokoo" creationdate="20190309T022750Z">
+        <seg>チュートリアルはL&lt;Mojolicious::Guides&gt;の序章です。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>This is the directory it will search for
+C&lt;public&gt; and C&lt;templates&gt; directories, but you can use it to store all sorts of
+application specific data.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T113433Z" creationid="mokoo" creationdate="20190309T074359Z">
+        <seg>アプリケーションが C&lt;public&gt; や C&lt;templates&gt; ディレクトリを検索するのはこのディレクトリですが、この中にあらゆる種類のアプリケーションデータを保存することもできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>To build HTML forms more
+efficiently, you can also use tag helpers like
+L&lt;Mojolicious::Plugin::TagHelpers/"form_for"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T115602Z" creationid="mokoo" creationdate="20190309T115602Z">
+        <seg>HTMLフォームを効率的に構築するために、
+[[Mojolicious::Plugin::TagHelpers]]のC&lt;form_for&gt;のような
+タグヘルパーを使うこともできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>To protect you from excessively large files there is also a limit of 16MiB by
+default, which you can tweak with the attribute
+L&lt;Mojolicious/"max_request_size"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T122318Z" creationid="mokoo" creationdate="20190309T122318Z">
+        <seg>極端に大きなファイルから保護するために、デフォルトでC&lt;16MB&gt;の制限もあります。サイズはL&lt;Mojolicious/"max_request_size"&gt; 属性で変更できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>To separate them from the surrounding text, you can surround your placeholders
+with C&lt;E&lt;lt&gt;&gt; and C&lt;E&lt;gt&gt;&gt;, which also makes the colon prefix optional.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070902Z" creationid="mokoo" creationdate="20190309T070902Z">
+        <seg>周囲の文字列を区別するには、プレースホルダーを C&lt;E&lt;lt&gt;&gt; と C&lt;E&lt;gt&gt;&gt; で囲みます。コロンプレフィックスも使用できます。</seg>
       </tuv>
     </tu>
     <tu>
       <tuv lang="EN">
         <seg>WebSocket applications have never been this simple before.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>WebSocketアプリケーションはこれまでに見たこともないくらい簡単です。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T122906Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>WebSocketアプリケーションがこれまでになく簡単になりました。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1496,8 +1767,8 @@ WebSocket user agent built right in.</seg>
         <seg>With L&lt;Mojolicious::Command::Author::generate::lite_app&gt; there is also a helper
 command to generate a small example application.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190309T062011Z" creationid="mokoo" creationdate="20190309T062011Z">
-        <seg>L&lt;Mojolicious::Command::Author::generate::lite_app&gt; では、小さなアプリケーションサンプルを生成するためのヘルパーコマンドもあります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T131504Z" creationid="mokoo" creationdate="20190309T062011Z">
+        <seg>L&lt;Mojolicious::Command::Author::generate::lite_app&gt; にも、小さなアプリケーションサンプルを生成するためのヘルパーコマンドがあります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1505,8 +1776,17 @@ command to generate a small example application.</seg>
         <seg>You can also group related routes with L&lt;Mojolicious::Lite/"group"&gt;, which
 allows nesting of routes generated with L&lt;Mojolicious::Lite/"under"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>関連したルーティングをグループ化(C&lt;group&gt;)することもできます。ネストされた複数のC&lt;under&gt;を可能にします。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T072732Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>関連するルーティングをグループ化(C&lt;group&gt;)することもできます。C&lt;under&gt;で生成されたネストしたルーティングを可能にします。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>You can also introspect your application from the command line with
+L&lt;Mojolicious::Command::eval&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T114541Z" creationid="mokoo" creationdate="20190309T074852Z">
+        <seg>L&lt;Mojolicious::Command::eval&gt; を使うと、コマンドラインからもアプリケーションを検証できます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1533,9 +1813,9 @@ L&lt;Mojolicious::Command::get&gt;.</seg>
         <seg>You can take a closer look at all the generated regular expressions with the
 command L&lt;Mojolicious::Command::routes&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>すべての生成された正規表現を見るのに、
-[[Mojolicious::Command::routes]]を使うことができます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T071534Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>生成されたすべての正規表現は、
+[[Mojolicious::Command::routes]]で詳しく確認することができます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1550,13 +1830,33 @@ L&lt;Mojolicious::Command::get&gt;.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>You can use L&lt;Mojolicious/"home"&gt; to interact with the directory your
+application considers its home.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T074154Z" creationid="mokoo" creationdate="20190309T074154Z">
+        <seg>L&lt;Mojolicious/"home"&gt; を使うと、アプリケーションがホームとしているディレクトリにアクセスできます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>You can use the L&lt;Mojo::Log&gt; object from L&lt;Mojolicious/"log"&gt; to portably
+collect debug messages and automatically disable them later in a production
+setup by changing the L&lt;Mojolicious&gt; operating mode, which can also be retrieved
+from the attribute L&lt;Mojolicious/"mode"&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T124746Z" creationid="mokoo" creationdate="20190309T124746Z">
+        <seg>ポータブルにデバッグメッセージを収集するために、[[Mojo]]のC&lt;log&gt;メソッドで[[Mojo::Log]]オブジェクトを利用できます。[[Mojolicious]]の処理モードを変更することによって、後にプロダクション用の設定において自動的に無効化されます。状態は[[Mojolicious]]のC&lt;mode&gt;属性によっても変更できます。</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>Your application will automatically reload itself if you start it with the
 L&lt;morbo&gt; development web server, so you don't have to restart the server after
 every change.</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T132447Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>開発用のサーバーであるC&lt;morbo&gt;でアプリケーションを起動すれば、
-アプリケーションは自動的にリロードされます。毎回のソースコードの変更の後にサーバを再起動させる必要はありません。</seg>
+アプリケーションは自動的にリロードされます。ソースコードを変更した後に毎回サーバを再起動させる必要はありません。</seg>
       </tuv>
     </tu>
     <tu>
@@ -1589,6 +1889,14 @@ every change.</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>get '/foo' =&gt; sub {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>get '/hello/#you' =&gt; 'groovy';</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070949Z" creationid="mokoo" creationdate="20190309T070949Z">
+        <seg>get '/hello/*you' =&gt; 'groovy';</seg>
       </tuv>
     </tu>
     <tu>
@@ -1641,6 +1949,14 @@ every change.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>my $c     = shift;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T070609Z" creationid="mokoo" creationdate="20190309T070609Z">
+        <seg>my $self = shift;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>my $c    = shift;</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -1657,9 +1973,17 @@ every change.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>my $c  = shift;</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T122647Z" creationid="mokoo" creationdate="20190309T122647Z">
+        <seg>my $self = shift;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>my $c = shift;</seg>
       </tuv>
-      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+      <tuv lang="JA" changeid="mokoo" changedate="20190309T114437Z" creationid="mokoo" creationdate="20190309T114437Z">
         <seg>my $self = shift;</seg>
       </tuv>
     </tu>
