@@ -102,26 +102,10 @@
     </tu>
     <tu>
       <tuv lang="EN">
-        <seg># Check if we have a log directory that is writable</seg>
-      </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190211T032341Z" creationid="mokoo" creationdate="20190211T032341Z">
-        <seg># 書き込み可能なログディレクトリがあるかどうか調べる</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN">
         <seg># Concurrent non-blocking</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg># 並列のノンブロッキング</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN">
-        <seg># Default to moniker</seg>
-      </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190211T032525Z" creationid="mokoo" creationdate="20190211T032525Z">
-        <seg># monikerのデフォルト</seg>
       </tuv>
     </tu>
     <tu>
@@ -286,14 +270,6 @@
     </tu>
     <tu>
       <tuv lang="EN">
-        <seg># Reduced log output outside of development mode</seg>
-      </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190211T032425Z" creationid="mokoo" creationdate="20190211T032425Z">
-        <seg># 開発モード以外でログの出力を減らす</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN">
         <seg># Render template "templates/foo/bar.html.ep"</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -362,14 +338,6 @@
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg># アクションとテンプレートのなかでヘルパーを使う</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN">
-        <seg># Warn developers about insecure default</seg>
-      </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190211T032456Z" creationid="mokoo" creationdate="20190211T032456Z">
-        <seg># 安全でないデフォルトを開発者に警告する</seg>
       </tuv>
     </tu>
     <tu>
@@ -6975,18 +6943,6 @@ L&lt;Carton&gt; for production setups.</seg>
         <seg>However, to completely avoid any risk of accidental breakage,
 we do recommend following current best practices for version pinning with
 [[Carton]] for production setups.</seg>
-      </tuv>
-    </tu>
-    <tu>
-      <tuv lang="EN">
-        <seg>I'll rest
-#             easier not knowing where they are."
-1;</seg>
-      </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190210T052618Z" creationid="mokoo" creationdate="20190210T052618Z">
-        <seg>I'll rest
-#             easier not knowing where they are."
-1;　https://www.tvfanatic.com/quotes/these-old-doomsday-devices-are-dangerously-unstable-ill-rest/</seg>
       </tuv>
     </tu>
     <tu>
