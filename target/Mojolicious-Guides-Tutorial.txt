@@ -6,13 +6,13 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 
 =head1 チュートリアル
 
-[[Mojolicious::Lite]]の特徴を簡潔なサンプルで紹介します。
-ここで学んだことのほとんどすべてがフルバージョンの[[Mojolicious]]アプリケーションに適用できるでしょう。
+[[Mojolicious::Lite]]の特徴を簡単なサンプルで紹介していきます。
+ここで学んだことは、ほとんどすべてがフルバージョンの[[Mojolicious]]アプリケーションにも当てはまります。
 
-チュートリアルは[[Mojolicious::Guides]]の序章です。その他のガイドでは各トピックについて深く掘り下げます。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious> アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
-[[rendering|Mojolicious::Guides::Rendering]]、その他にもたくさんあります。これを読み終わった後は、残りのガイドを読む進めることをおすすめします。
+チュートリアルは[[Mojolicious::Guides]]の序章です。その他のガイドでは、各トピックについて深堀します。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious> アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
+[[rendering|Mojolicious::Guides::Rendering]]、その他にもたくさんあります。これを読み終わった後は、残りのガイドを読むことををおすすめします。
 
-=head2 Hello World!
+=head2 Hello World
 
 かんたんなHello Worldアプリケーションはこのようになります。[[strict]], [[warnings]],
 [[utf8]] 、Perl 5.10の[[features|feature]] が自動的に有効になり、
@@ -23,19 +23,19 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
   use Mojolicious::Lite;
 
   get '/' => sub {
-    my $self = shift;
-    $self->render(text => 'Hello World!');
+    my $c = shift;
+    $c->render(text => 'Hello World!');
   };
 
   app->start;
 
-[[Mojolicious::Command::Author::generate::lite_app]] にも小さなアプリケーションサンプルを生成するためのヘルパーコマンドがあります。
+[[Mojolicious::Command::Author::generate::lite_app]] には、小さなアプリケーションサンプルを生成するためのヘルパーコマンドがあります。
 
-  $ mojo generate lite_app
+  $ mojo generate lite_app myapp.pl
 
 =head2 コマンド
 
-多くの[[commands|Mojolicious::Commands/"COMMANDS"]] が自動的にコマンドラインから利用できるようになります。CGIまたは[[PSGI]] のどちらの環境であるかは自動的に検知されるため、通常はコマンドで指定してなくても動作します。
+多くの[[commands|Mojolicious::Commands/"COMMANDS"]] が自動的にコマンドラインから利用できるようになります。CGIまたは[[PSGI]] のどちらの環境であるかは自動的に検知されるため、通常はコマンドで指定しなくても動作します。
 
   $ ./myapp.pl daemon
   Server available at http://127.0.0.1:3000.
@@ -50,9 +50,9 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
   Hello World!
 
   $ ./myapp.pl
-  ...利用可能なコマンドを表示(あるいは自動的に検知された環境)...
+  ...利用可能なコマンドが表示(または自動的に環境が検知される)...
 
-[[Mojolicious]]のC<start> (C<app-E<gt]]start>)を呼び出すと、コマンドシステムが開始されます。この呼び出しはアプリケーションの最後の処理とするべきです。というのは、返り値が大きな影響をもつ場合があるからです。
+[[Mojolicious]]のC<start> (C<app-E<gt]]start>)を呼び出すと、コマンドシステムが開始されます。この呼び出しはアプリケーションの最後に置くべきです。というのは、返り値が大きな影響をもつ場合があるからです。
 
   # @ARGVを使ってコマンドを取得する
   app->start;
@@ -73,32 +73,32 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 
 =head2 ルーティング(Routes)
 
-ルーティング(routes)とは、一般的にいうと異なる種類のプレースホルダを含むことのできる仮想的なパスです。通常はアクションにつながっており、リクエストURLのパス部分にマッチしたときに実行されます。すべてのアクション（C<$self>）に渡される第一引数は、[[Mojolicious::Controller]]のインスタンスです。これにはHTTPリクエストとレスポンスが含まれています。
+ルーティング(routes)とは、一般的にいうと異なる種類のプレースホルダを含むことのできる仮想的なパスのことです。通常はアクションにつながっており、リクエストURLのパス部分にマッチしたときに実行されます。すべてのアクション（C<$self>）に渡される第一引数は、[[Mojolicious::Controller]]のインスタンスです。これにはHTTPリクエストとレスポンスが含まれています。
 
   use Mojolicious::Lite;
 
   # テキストをレンダリングするアクションへのルーティング
   get '/foo' => sub {
-    my $self = shift;
-    $self->render(text => 'Hello World!');
+    my $c = shift;
+    $c->render(text => 'Hello World!');
   };
 
   app->start;
 
 レスポンスコンテントの多くは
-[[Mojolicious::Controller/"render"]]を使ったアクションで生成されます。詳しくは後ほど。
+[[Mojolicious::Controller]]のC<render>を使ったアクションによって生成されます。詳しくは後ほど。
 
 =head2 GET/POSTパラメーター
 
-すべてのC<GET>とC<POST>パラメーターは[[Mojolicious::Controller/"param"]]を通してアクセスできます。
+すべてのC<GET>とC<POST>パラメーターは[[Mojolicious::Controller]]のC<param>を通じてアクセスできます。
 
   use Mojolicious::Lite;
 
   # /foo?user=sri
   get '/foo' => sub {
-    my $self = shift;
-    my $user = $self->param('user');
-    $self->render(text => "Hello $user!");
+    my $c    = shift;
+    my $user = $c->param('user');
+    $c->render(text => "Hello $user.");
   };
 
   app->start;
@@ -111,7 +111,7 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 
   # テンプレートを描画するアクションに至るルート
   get '/foo' => sub {
-    my $self = shift;
+    my $c = shift;
     $c->stash(one => 23);
     $c->render(template => 'magic', two => 24);
   };
@@ -122,7 +122,7 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
   @@ magic.html.ep
   The magic numbers are <%= $one %> and <%= $two %>.
 
-テンプレートの詳しい情報については
+テンプレートについて詳しい情報は
 [[Mojolicious::Guides::Rendering]]のC<埋め込みPerl>の項を見てください。
 
 =head2 HTTP
@@ -133,36 +133,36 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 
   # リクエストの情報にアクセス
   get '/agent' => sub {
-    my $self = shift;
-    my $host = $self->req->url->to_abs->host;
-    my $ua   = $self->req->headers->user_agent;
-    $self->render(text => "Request by $ua reached $host.");
+    my $c    = shift;
+    my $host = $c->req->url->to_abs->host;
+    my $ua   = $c->req->headers->user_agent;
+    $c->render(text => "Request by $ua reached $host.");
   };
 
   # リクエストボディをエコーして、レスポンスのついたカスタムヘッダを送信
   post '/echo' => sub {
-    my $self = shift;
-    $self->res->headers->header('X-Bender' => 'Bite my shiny metal ass!');
-    $self->render(data => $self->req->body);
+    my $c = shift;
+    $c->res->headers->header('X-Bender' => 'Bite my shiny metal ass!');
+    $c->render(data => $c->req->body);
   };
 
   app->start;
 
 [[Mojolicious::Command::get]]を使って、
-コマンドラインからより発展的なサンプルをすぐにテストできます。
+コマンドラインからより発展的なサンプルをテストできます。
 
   $ ./myapp.pl get -v -M POST -c 'test' /echo
 
 =head2 JSON
 
-JSONは、ウェブサービスでもっともよく使われるデータ送信フォーマットです。
-[[Mojolicious>はJSONが大好きです。ピュアPerlの実装ではおそらく最速である[[Mojo::JSON]] が組み込まれており、[[Mojo::Message/"json"]] や予約済みスタッシュ値のC<json>によってアクセスできます。
+JSONは、ウェブサービスでもっともよく使われるデータ交換フォーマットです。
+[[Mojolicious]]はJSONが大好きです。ピュアPerlの実装ではおそらく最速となる[[Mojo::JSON]] が組み込まれており、[[Mojo::Message]]のC<json> あるいは予約済みスタッシュ値のC<json>によってアクセスできます。
 
   use Mojolicious::Lite;
 
   # 受け取ったJSONドキュメントを変更して返す
   put '/reverse' => sub {
-    my $self = shift;
+    my $c    = shift;
     my $hash = $c->req->json;
     $hash->{message} = reverse $hash->{message};
     $c->render(json => $hash);
@@ -170,15 +170,15 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
 
   app->start;
 
-コマンドラインで[[Mojolicious::Command::get]]を使ってJSONドキュメントを送信できます。
+コマンドラインから[[Mojolicious::Command::get]]を使ってJSONドキュメントを送信できます。
 
   $ ./myapp.pl get -M PUT -c '{"message":"Hello Mojo!"}' /reverse
 
 =head2 組み込みの例外(C<exception>)とノットファウンド(C<not_found>)ページ
 
 開発中、間違いを犯したときはいつでも、
-このページに遭遇するでしょう。これは、すばらしく、アプリケーションのデバックに役立つ
-情報が多く含まれています。
+このページに遭遇するでしょう。ここには、素晴らしい、アプリケーションのデバックに役立つ
+情報がたくさん含まれています。
 
   use Mojolicious::Lite;
 
@@ -194,18 +194,18 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
 
   $ ./myapp.pl get /dies '#error'
 
-ページに情報が見えすぎるといって心配はいりません。これが有効になるのは開発中だけです。プロダクション環境では、大切な情報が表示されないページに自動的に置き換わります。
+ページに情報が見えすぎるからといって心配しないでください。これが有効になるのは開発中だけです。プロダクション環境では、大切な情報が表示されないページに自動的に置き換わります。
 
 =head2 ルーティング名
 
-ルーティング(routes)には名前を付けることができます。名前を付けておけばテンプレートの自動的な検索や[[Mojolicious::Controller>のC<url_for>による逆引きや[[Mojolicious::Plugin::TagHelpers]]のC<link_to>などの多くのヘルパーが使えます。
+すべてのルーティング(routes)には名前を付けることができます。名前を付けることによってテンプレートの自動検出や[[Mojolicious::Controller]]のC<url_for>による逆引きができるようになり、[[Mojolicious::Plugin::TagHelpers]]のC<link_to>など、多くのヘルパーやメソッドがこれに基づいて動きます。
 
   use Mojolicious::Lite;
 
   # "index.html.ep"というテンプレートを描画
   get '/' => sub {
-    my $self = shift;
-    $self->render;
+    my $c = shift;
+    $c->render;
   } => 'index';
 
   # "hello.html.ep"というテンプレートを描画
@@ -221,15 +221,11 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
   @@ hello.html.ep
   Hello World!
 
-名前を付けていないルートには、自動生成されたルート名が割り当てられます。この名前は、ルート自身の名前から、ノンワード文字を取り除いたものと等しくなります。
+名前がないルートには、自動生成されたルート名が割り当てられます。この名前は、ルート自身の名前からノンワード文字を除いたものと同じです。
 
 =head2 レイアウト
 
-テンプレートにはレイアウトを持たせることができます。[[Mojolicious::Plugin::DefaultHelpers]]
-のC<layout>ヘルパーを使って、
-レイアウトを選択することができ、
-[[Mojolicious::Plugin::DefaultHelpers]]のC<content>
-ヘルパーを使って、現在のテンプレートの結果を入れることができます。
+テンプレートにはレイアウトを持たせることができます。レイアウトは[[Mojolicious::Plugin::DefaultHelpers]]のC<layout>ヘルパーを使って選択することができ、[[Mojolicious::Plugin::DefaultHelpers]]のC<content>ヘルパーを使って現在のテンプレートの結果を入れることができます。
 
   use Mojolicious::Lite;
 
@@ -238,7 +234,7 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
   app->start;
   __DATA__;
 
-  __DATA__;
+  @@ with_layout.html.ep
   % title 'Green';
   % layout 'green';
   Hello World!
@@ -250,11 +246,11 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
     <body><%= content %></body>
   </html>
 
-スタッシュや[[Mojolicious::Plugin::DefaultHelpers]]のC<title>のようなヘルパーを使って追加のデータをレイアウトに渡せます。
+スタッシュや[[Mojolicious::Plugin::DefaultHelpers]]のC<title>のようなヘルパーを使うと、追加のデータをレイアウトに渡せます。
 
 =head2 ブロック
 
-テンプレートブロックはPerlスクリプトにおける関数のように利用することができ、常にC<begin>とC<end>というキーワードで区切られます。これらは、多くのヘルパーの基盤です。
+テンプレートブロックは通常のPerl関数のように利用でき、常にC<begin>とC<end>というキーワードで区切ります。これは多くのヘルパーの基盤になっています。
 
   use Mojolicious::Lite;
 
@@ -279,23 +275,23 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
 
 =head2 ヘルパー
 
-ヘルパーは [[Mojolicious::Lite/"helper"]] キーワードによって作ることができる小さな関数です。アクションからテンプレートまでアプリケーション全体において利用することができます。
+ヘルパーは [[Mojolicious::Lite]]のC<helper> キーワードで作ることができる小さな関数です。アクションからテンプレートまでアプリケーション全体において利用することができます。
 
   use Mojolicious::Lite;
 
+  # 訪問者を特定するヘルパー
   helper whois => sub {
-  my $self  = shift;
-    my $self = shift;
+    my $c     = shift;
     my $agent = $c->req->headers->user_agent || 'Anonymous';
-    my $ip    = $self->tx->remote_address;
+    my $ip    = $c->tx->remote_address;
     return "$agent ($ip)";
   };
 
   # アクションとテンプレートのなかでヘルパーを使う
   get '/secret' => sub {
-    my $self = shift;
-    my $user = $self->whois;
-    $self->app->log->debug("Request from $user.");
+    my $c    = shift;
+    my $user = $c->whois;
+    $c->app->log->debug("Request from $user");
   };
 
   app->start;
@@ -304,40 +300,38 @@ JSONは、ウェブサービスでもっともよく使われるデータ送信�
   @@ secret.html.ep
   We know who you are <%= whois %>.
 
-組み込みヘルパーすべてのリストは [[Mojolicious::Plugin::DefaultHelpers]] と [[Mojolicious::Plugin::TagHelpers]]にあります。
+すべての組み込みヘルパーのリストは、 [[Mojolicious::Plugin::DefaultHelpers]] と [[Mojolicious::Plugin::TagHelpers]]にあります。
 
 =head2 プレースホルダー
 
-ルーティング(routes)プレースホルダを使用すると、区切り文字である/あるいは.が出現するまでの、
-リクエストパスの一部分をキャプチャすることができます。結果は[[Mojolicious::Controller]]の
-C<stash>とC<param>を通して利用できます。
+ルーティング(routes)プレースホルダを使用すると、区切り文字の / あるいは . が出現するまでの部分を、リクエストパスからキャプチャできます。結果は[[Mojolicious::Controller]]のC<stash>とC<param>を通じて利用できます。
 
   use Mojolicious::Lite;
 
   # /foo/test
   # /foo/test123
   get '/foo/:bar' => sub {
-    my $self = shift;
-    my $bar  = $self->stash('bar');
-    $self->render(text => "Our :bar placeholder matched $bar");
+    my $c   = shift;
+    my $bar = $c->stash('bar');
+    $c->render(text => "Our :bar placeholder matched $bar");
   };
 
   # /testsomething/foo
   # /test123something/foo
   get '/<:bar>something/foo' => sub {
-    my $self = shift;
-    my $bar  = $self->param('bar');
-    $self->render(text => "Our :bar placeholder matched $bar");
+    my $c   = shift;
+    my $bar = $c->param('bar');
+    $c->render(text => "Our :bar placeholder matched $bar");
   };
 
   app->start;
 
-周囲の文字列を区別するには、プレースホルダーを C<E<lt>> と C<E<gt>> で囲みます。コロンプレフィックスも使用できます。
+プレースホルダーを周囲の文字列と区別するためには、 C<E<lt>> と C<E<gt>> で囲みます。こうした場合、プレフィックスのコロンは付けても付けなくてもよくなります。
 
 =head2 リラックスプレースホルダー
 
 リラックスプレースホルダーを使えば、
-C</>が出現するまでのすべてにマッチさせることができます。これは正規表現のC<([^/]+)>と同様です。
+C</>が出現するまでのすべてにマッチさせることができます。これは正規表現のC<([^/]+)>に似ています。
 
   use Mojolicious::Lite;
 
@@ -353,7 +347,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
 =head2 ワイルドカードプレースホルダー
 
-ワイルドカードプレースホルダを使用するとC</>を含むすべてにマッチさせることができます。
+ワイルドカードプレースホルダを使用すると、C</>とC<.>を含むすべてにマッチさせることができます。正規表現のC<(.+)>に似ています。
 
   use Mojolicious::Lite;
 
@@ -370,34 +364,34 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
 =head2 HTTPメソッド
 
-ルーティングは [[Mojolicious::Lite/"get"]] や [[Mojolicious::Lite/"any"]]といったキーワードを使って特定のリクエストメソッドに限定することができます。
+ルーティングは [[Mojolicious::Lite/]]のC<get> や [[Mojolicious::Lite]]のC<any>といったキーワードによって特定のリクエストメソッドに限定できます。
 
   use Mojolicious::Lite;
 
   # "hello.html.ep"というテンプレートを描画
   get '/hello' => sub {
-    my $self = shift;
-    $self->render(text => 'Hello World!');
+    my $c = shift;
+    $c->render(text => 'Hello World!');
   };
 
   # PUT /hello
   put '/hello' => sub {
-    my $self = shift;
-    my $size = length $self->req->body;
-    $self->render(text => "You uploaded $size bytes to /hello.");
+    my $c    = shift;
+    my $size = length $c->req->body;
+    $c->render(text => "You uploaded $size bytes to /hello.");
   };
 
   # GET|POST|PATCH /bye
   any ['GET', 'POST', 'PATCH'] => '/bye' => sub {
-    my $self = shift;
-    $self->render(text => 'Bye World!');
+    my $c = shift;
+    $c->render(text => 'Bye World!');
   };
 
   # * /whatever
   any '/whatever' => sub {
-    my $self   = shift;
-    my $method = $self->req->method;
-    $self->render(text => "You called /whatever with $method.");
+    my $c      = shift;
+    my $method = $c->req->method;
+    $c->render(text => "You called /whatever with $method.");
   };
 
   app->start;
@@ -413,8 +407,8 @@ C</>が出現するまでのすべてにマッチさせることができます�
   # /hello
   # /hello/Sara
   get '/hello/:name' => {name => 'Sebastian', day => 'Monday'} => sub {
-    my $self = shift;
-    $self->render(template => 'groovy', format => 'txt');
+    my $c = shift;
+    $c->render(template => 'groovy', format => 'txt');
   };
 
   app->start;
@@ -428,30 +422,30 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
 =head2 制約的なプレースホルダー
 
-プレースホルダーにより多くの制約を加えるには、選択肢を用意するのがもっとも簡単です。候補となる値のリストを作るだけでOKです。
+プレースホルダーにより多くの制約を加えるには、選択肢を使うのが一番簡単です。候補となる値のリストを作るだけでOKです。
 
   use Mojolicious::Lite;
 
   # /test
   # /123
   any '/:foo' => [foo => ['test', '123']] => sub {
-    my $self = shift;
-    my $foo  = $self->param('foo');
-    $self->render(text => "Our :foo placeholder matched $foo");
+    my $c   = shift;
+    my $foo = $c->param('foo');
+    $c->render(text => "Our :foo placeholder matched $foo");
   };
 
   app->start;
 
-すべてのプレースホルダーは内部的には正規表現にコンパイルされます。この処理は簡単にカスタマイズすることもできます。C<^>とC<$>を使ったり、C<(...)>でグループのキャプチャは行わないでください。けれどもキャプチャしないC<(?:...)>は大丈夫。
+すべてのプレースホルダーは、内部で正規表現にコンパイルされます。この処理はカスタマイズすることもできます。C<^>とC<$>を使ったり、C<(...)>でグループのキャプチャは行わないでください。けれどもキャプチャしないC<(?:...)>は大丈夫です。
 
   use Mojolicious::Lite;
 
   # /1
   # /123
   any '/:bar' => [bar => qr/\d+/] => sub {
-    my $self = shift;
-    my $bar  = $self->param('bar');
-    $self->render(text => "Our :bar placeholder matched $bar");
+    my $c   = shift;
+    my $bar = $c->param('bar');
+    $c->render(text => "Our :bar placeholder matched $bar");
   };
 
   app->start;
@@ -461,22 +455,22 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
   $ ./myapp.pl routes -v
 
-=head2 アンダー(Under)
+=head2 アンダー (Under)
 
-認証や複数のルーティングの間でコードを共有するには、[[Mojolicious::Lite]]のC<under>構文を使うと簡単に実現できます。以降のすべてのルーティングはunderコールバックが真値を返したときだけ評価されます。
+認証や複数のルーティングの間でコードを共有するためには、[[Mojolicious::Lite]]のC<under>構文を使う簡単です。以降のすべてのルーティングは、underコールバックが真値を返したときだけ評価されます。
 
   use Mojolicious::Lite;
 
   # nameパラメータを元にした認証
   under sub {
-    my $self = shift;
+    my $c = shift;
 
     # 認証された
-    my $name = $self->param('name') || '';
+    my $name = $c->param('name') || '';
     return 1 if $name eq 'Bender';
 
     # 認証されなかった
-    $self->render(template => 'denied');
+    $c->render(template => 'denied');
     return undef;
   };
 
@@ -492,7 +486,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
   @@ index.html.ep
   Hi Bender.
 
-複数のルーティングにプレフィックスを付けるのは C<under>のよい利用方法です。
+複数のルーティングをあらかじめ決めるために使うのもまた良い利用方法です。
 
   use Mojolicious::Lite;
 
@@ -513,26 +507,26 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
   app->start;
 
-関連するルーティングをグループ化(C<group>)することもできます。C<under>で生成されたネストしたルーティングを可能にします。
+[[Mojolicious::Lite]]のC<group>で関連するルーティングをグループ化(C<group>)することもできます。これによって、C<under>で生成したルートをネストできるようになります。
 
   use Mojolicious::Lite;
 
   # すべてのルートで共有されるグローバルなロジック
   under sub {
-    my $self = shift;
-    return 1 if $self->req->headers->header('X-Bender');
-    $self->render(text => "You're not Bender.");
+    my $c = shift;
+    return 1 if $c->req->headers->header('X-Bender');
+    $c->render(text => "You're not Bender.");
     return undef;
   };
 
   # Adminの部分
   group {
 
-    # このグループにおいてのルートによってだけ共有されるローカルなロジック
+    # グループ内のルートだけに共有されるローカルなロジック
     under '/admin' => sub {
-      my $self = shift;
-      return 1 if $self->req->heaers->header('X-Awesome');
-      $self->render(text => "You're not awesome enough.");
+      my $c = shift;
+      return 1 if $c->req->headers->header('X-Awesome');
+      $c->render(text => "You're not awesome enough.");
       return undef;
     };
 
@@ -547,7 +541,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
 =head2 フォーマット
 
-「フォーマット(formats)」はC<.html>などのファイル拡張子によって自動的に検出されます。
+フォーマット（formats）は、C<.html>などのファイル拡張子によって自動的に検出されます。フォーマットは正しいテンプレートを探したり、正確なC<Content-Type>ヘッダーを生成するために使用されます。
 
   use Mojolicious::Lite;
 
@@ -555,8 +549,8 @@ C</>が出現するまでのすべてにマッチさせることができます�
   # /detection.html
   # /detection.txt
   get '/detection' => sub {
-    my $self = shift;
-    $self->render(template => 'detected');
+    my $c = shift;
+    $c->render(template => 'detected');
   };
 
   app->start;
@@ -572,29 +566,29 @@ C</>が出現するまでのすべてにマッチさせることができます�
   @@ detected.txt.ep
   TXT was detected.
 
-デフォルトのフォーマットは C<html>です。プレースホルダを制限することによって可能な値を限定できます。
+デフォルトのフォーマットは C<html>です。プレースホルダで制限すれば、取りうる値を限定できます。
 
   use Mojolicious::Lite;
 
   # /hello.json
   # /hello.txt
   get '/hello' => [format => ['json', 'txt']] => sub {
-    my $self = shift;
-    return $self->render(json => {hello => 'world'})
-      if $self->stash('format') eq 'json';
-    $self->render(text => 'hello world');
+    my $c = shift;
+    return $c->render(json => {hello => 'world'})
+      if $c->stash('format') eq 'json';
+    $c->render(text => 'hello world');
   };
 
   app->start;
 
-フォーマットの検知を無効にすることもできます。
+フォーマットの検知は、特別なタイプのプレースホルダーを使うことで無効にすることもできます。
 
   use Mojolicious::Lite;
 
   # /hello
   get '/hello' => [format => 0] => {text => 'No format detection.'};
 
-  # 検知を無効にして、以下のルートが再び選択的にできるようにする
+  # 検出を無効にして、以降のルートにおいて必要であれば再び有効にする
   under [format => 0];
 
   # /foo
@@ -607,7 +601,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
 =head2 コンテントネゴシエーション
 
-異なる方法で表現されるリソースや本当にRESTfulなコンテントネゴーシエーションの必要のために、[[Mojolicious::Plugin::DefaultHelpers]]のC<respond_to>を使用することもできます。
+異なる方法で表現されるリソースや本当にRESTfulなコンテントネゴーシエーションが必要な場合は、[[Mojolicious::Plugin::DefaultHelpers]]のC<respond_to>を使用することもできます。
 
   use Mojolicious::Lite;
 
@@ -618,8 +612,8 @@ C</>が出現するまでのすべてにマッチさせることができます�
   # /hello?format=json
   # /hello?format=xml
   get '/hello' => sub {
-    my $self = shift;
-    $self->respond_to(
+    my $c = shift;
+    $c->respond_to(
       json => {json => {hello => 'world'}},
       xml  => {text => '<hello>world</hello>'},
       any  => {data => '', status => 204}
@@ -634,7 +628,7 @@ MIMEタイプのマッピングは、[[Mojolicious]]のC<types>によって拡�
 
 =head2 静的ファイル
 
-テンプレートに似て、この場合は単一の拡張子とBase64エンコーディングに限られますが、静的ファイルはC<DATA>セクションの中にインラインで記述することができます。
+テンプレートに似て、静的ファイルはC<DATA>セクションの中にインラインで記述することができ、自動的にサーブされます。ただし、使える拡張子が1種類に限られるのと、Base64エンコーディングが使える点が異なります。
 
   use Mojolicious::Lite;
 
@@ -647,16 +641,16 @@ MIMEタイプのマッピングは、[[Mojolicious]]のC<types>によって拡�
   @@ test.txt (base64)
   dGVzdCAxMjMKbGFsYWxh
 
-外部に配置した静的ファイルは、拡張子が1種類に制限されず、C<public>ディレクトリが存在すればそこから自動的にサーブされます。
+外部に置いた静的ファイルは、拡張子が1種類に制限されず、C<public>ディレクトリが存在すればそこから自動的にサーブされます。
 
   $ mkdir public
   $ mv something.js public/something.js
   $ mv mojolicious.tar.gz public/mojolicious.tar.gz
 
-両方ともC<GET>、C<HEAD>リクエストのルーティングよりも高い優先順位を持ちます。
-C<Range>, C<If-None-Match>、C<If-Modified-Since>ヘッダー
-によるコンテンツネゴシエーションがサポートされ、
-[[Mojolicious::Command::get]]で簡単に試験できます。
+両方とも優先度はC<GET>、C<HEAD>リクエストのルーティングよりも高くなります。
+C<Range>、C<If-None-Match>、C<If-Modified-Since>ヘッダー
+によるコンテンツネゴシエーションにも対応していて、
+[[Mojolicious::Command::get]]で簡単にテストできます。
 
   $ ./myapp.pl get /something.js -v -H 'Range: bytes=2-4'
 
@@ -667,14 +661,14 @@ C<Range>, C<If-None-Match>、C<If-Modified-Since>ヘッダー
   $ mkdir -p templates/foo
   $ echo 'Hello World!' > templates/foo/bar.html.ep
 
-これらはC<DATA>セクションのテンプレートよりも優先されます。
+これらはC<DATA>セクションにあるテンプレートよりも優先されます。
 
   use Mojolicious::Lite;
 
   # "templates/foo/bar.html.ep"というテンプレートを描画する
   any '/external' => sub {
-    my $self = shift;
-    # templates/foo/bar.html.ep
+    my $c = shift;
+    $c->render(template => 'foo/bar');
   };
 
   app->start;
@@ -686,7 +680,7 @@ C<Range>, C<If-None-Match>、C<If-Modified-Since>ヘッダー
   $ mkdir cache
   $ echo 'Hello World!' > cache/hello.txt
 
-[[Mojo::Home]] には [[Mojo::File]]から継承した便利なメソッドが多くあります。たとえば、[[Mojo::File]]のC<child>やC<slurp>は、アプリケーションを様々なオペレーティングシステムにまたがって使用できるようにしています。
+[[Mojo::Home]] には [[Mojo::File]]から継承した便利なメソッドがたくさんあります。たとえば、[[Mojo::File]]のC<child>やC<slurp>は、アプリケーションを様々なオペレーティングシステムにまたがって使用できるようにしています。
 
   use Mojolicious::Lite;
 
@@ -695,15 +689,15 @@ C<Range>, C<If-None-Match>、C<If-Modified-Since>ヘッダー
 
   # メッセージを表示する
   get '/' => sub {
-    my $self = shift;
+    my $c = shift;
     $c->render(text => $hello);
   };
 
-[[Mojolicious::Command::eval]] を使うと、コマンドラインからもアプリケーションを検証できます。
+[[Mojolicious::Command::eval]] を使うことでも、コマンドラインからアプリケーションを検証できます。
 
   $ ./myapp.pl eval -v 'app->home'
 
-=head2 条件分岐
+=head2 条件
 
 [[Mojolicious::Plugin::HeaderCondition]]からC<agent>やC<host>といった条件
 を使用すれば、より強力なルーティングを構築できます。
@@ -712,20 +706,20 @@ C<Range>, C<If-None-Match>、C<If-Modified-Since>ヘッダー
 
   # Firefox
   get '/foo' => (agent => qr/Firefox/) => sub {
-    my $self = shift;
-    $self->render(text => 'Congratulations, you are using a cool browser.');
+    my $c = shift;
+    $c->render(text => 'Congratulations, you are using a cool browser.');
   };
 
   # Internet Explorer
   get '/foo' => (agent => qr/Internet Explorer/) => sub {
-    my $self = shift;
-    $self->render(text => 'Dude, you really need to upgrade to Firefox.');
+    my $c = shift;
+    $c->render(text => 'Dude, you really need to upgrade to Firefox.');
   };
 
   # http://mojolicious.org/bar
   get '/bar' => (host => 'mojolicious.org') => sub {
-    my $self = shift;
-    $self->render(text => 'Hello Mojolicious.');
+    my $c = shift;
+    $c->render(text => 'Hello Mojolicious.');
   };
 
   app->start;
@@ -739,25 +733,24 @@ C<Range>, C<If-None-Match>、C<If-Modified-Since>ヘッダー
 
   # アクションとテンプレートの中のセッションデータへのアクセス
   get '/counter' => sub {
-    my $self = shift;
-    $self->session->{counter}++;
+    my $c = shift;
+    $c->session->{counter}++;
   };
 
   app->start;
   __DATA__;
 
-  @@ counter.html.ep
+  __DATA__;
   Counter: <%= session 'counter' %>
 
-Note that you should use custom [[Mojolicious/"secrets"]] to make signed cookies
-really tamper resistant.
+署名付き(signed)クッキーを本当に改ざんできなくするには、[[Mojolicious]]のC<secret>をカスタムして使用してください。
 
   app->secrets(['My secret passphrase here']);
 
 =head2 ファイルアップロード
 
-C<multipart/form-data>リクエストを通してアップロードされたすべてのファイルは自動的に
- [[Mojolicious::Controller/"param"]]の中で[[Mojo::Upload]]のインスタンスとして利用可能になります。
+ファイルは、C<multipart/form-data>リクエストを通してアップロードされると、自動的に
+ [[Mojolicious::Controller]]のC<param>から[[Mojo::Upload]]のインスタンスとして利用可能になります。
 メモリの使用率を気にする必要はありません。C<250KB>を超えるすべてのファイルは自動的に一時ファイルに保存されるからです。HTMLフォームを効率的に構築するために、
 [[Mojolicious::Plugin::TagHelpers]]のC<form_for>のような
 タグヘルパーを使うこともできます。
@@ -769,17 +762,17 @@ C<multipart/form-data>リクエストを通してアップロードされたす�
 
   # Multipartのアップロードのハンドラ
   post '/upload' => sub {
-    my $self = shift;
+    my $c = shift;
 
     # ファイルサイズのチェック
-    return $self->render(text => 'File is too big.', status => 200)
-      if $self->req->is_limit_exceeded;
+    return $c->render(text => 'File is too big.', status => 200)
+      if $c->req->is_limit_exceeded;
 
     # アップロードしたファイルを処理
-    return $self->redirect_to('form')unless my $example = $self->param('example');
+    return $c->redirect_to('form') unless my $example = $c->param('example');
     my $size = $example->size;
     my $name = $example->filename;
-    $self->render(text => "Thanks for uploading $size byte file $name.");
+    $c->render(text => "Thanks for uploading $size byte file $name.");
   };
 
   app->start;
@@ -797,7 +790,7 @@ C<multipart/form-data>リクエストを通してアップロードされたす�
     </body>
   </html>
 
-極端に大きなファイルから保護するために、デフォルトでC<16MB>の制限もあります。サイズは[[Mojolicious]]のC<max_request_size> 属性で変更できます。
+極端に大きなファイルから保護するために、デフォルトでC<16MB>の制限があります。サイズは[[Mojolicious]]のC<max_request_size> 属性で変更できます。
 
   # 制限を1GBに増やす
   app->max_request_size(1073741824);
@@ -810,15 +803,15 @@ C<multipart/form-data>リクエストを通してアップロードされたす�
 
   # ブロッキング
   get '/headers' => sub {
-    my $self = shift;
+    my $c   = shift;
     my $url = $c->param('url') || 'https://mojolicious.org';
     my $dom = $c->ua->get($url)->result->dom;
-    $self->render(json => [$dom->find('h1, h2, h3')->text->each]);
+    $c->render(json => $dom->find('h1, h2, h3')->map('text')->to_array);
   };
 
   # ノンブロッキング
   get '/title' => sub {
-    my $self = shift;
+    my $c = shift;
     $c->ua->get('mojolicious.org' => sub {
       my ($ua, $tx) = @_;
       $c->render(data => $tx->result->dom->at('title')->text);
@@ -827,7 +820,7 @@ C<multipart/form-data>リクエストを通してアップロードされたす�
 
   # 並列のノンブロッキング
   get '/titles' => sub {
-    my $self = shift;
+    my $c  = shift;
     my $mojo = $c->ua->get_p('https://mojolicious.org');
     my $cpan = $c->ua->get_p('https://metacpan.org');
     Mojo::Promise->all($mojo, $cpan)->then(sub {
@@ -841,20 +834,20 @@ C<multipart/form-data>リクエストを通してアップロードされたす�
 
   app->start;
 
-ユーザーエージェントについてより詳しい情報は[[Mojolicious::Guides::Cookbook]]のC<ユーザーエージェント>の項目にあります。
+ユーザーエージェントについてより詳しい情報は、[[Mojolicious::Guides::Cookbook]]のC<ユーザーエージェント>の項目にあります。
 
 =head2 WebSocket
 
-WebSocketアプリケーションがこれまでになく簡単になりました。[[Mojo::Transaction::WebSocket]]のC<json>と同じイベントを、[[Mojolicious::Controller]]のC<on>を使って購読することによってメッセージを受信できます。メッセージを送信するには、[[Mojolicious::Controller]]のC<send>を使います。
+WebSocketアプリケーションはこれまでに見たこともないくらい簡単です。[[Mojo::Transaction::WebSocket]]のC<json>と同じイベントを、[[Mojolicious::Controller]]のC<on>を使って購読することによってメッセージを受信できます。メッセージを送信するには、[[Mojolicious::Controller]]のC<send>を使います。
 
   use Mojolicious::Lite;
 
   websocket '/echo' => sub {
-    my $self = shift;
-    $self->on(json => sub {
-      my ($self, $hash) = @_;
+    my $c = shift;
+    $c->on(json => sub {
+      my ($c, $hash) = @_;
       $hash->{msg} = "echo: $hash->{msg}";
-      $self->send({json => $hash});
+      $c->send({json => $hash});
     });
   };
 
@@ -884,24 +877,24 @@ WebSocketアプリケーションがこれまでになく簡単になりまし�
 
 =head2 モード
 
-ポータブルにデバッグメッセージを収集するために、[[Mojo]]のC<log>メソッドで[[Mojo::Log]]オブジェクトを利用できます。[[Mojolicious]]の処理モードを変更することによって、後のプロダクション用の設定において自動的に無効化することができます。これは[[Mojolicious]]のC<mode>属性によって読み取ることもできます。
+ポータブルにデバッグメッセージを収集するために、[[Mojo]]のC<log>メソッドで[[Mojo::Log]]オブジェクトを利用できます。[[Mojolicious]]の処理モードを変更することによって、後のプロダクション用の設定においてデバッグを自動的に無効化することができます。これは[[Mojolicious]]のC<mode>属性によって読み取り可能です。
 
   use Mojolicious::Lite;
 
-  # startupの間にモードに応じたメッセージを準備する
+  # startupの間にモードに合ったメッセージを準備する
   my $msg = app->mode eq 'development' ?'Development!' : 'Something else!';
 
   get '/' => sub {
-    my $self = shift;
-    $self->app->log->debug('Rendering mode specific message.');
-    $self->render(text => $msg);
+    my $c = shift;
+    $c->app->log->debug('Rendering mode specific message');
+    $c->render(text => $msg);
   };
 
   app->log->debug('Starting application.');
   app->start;
 
-デフォルトの処理モードは通常はC<development>ですが、コマンドラインオプションか
-C<MOJO_MODE>あるいはC<PLACK_ENV>環境変数によっても変更できます。C<development>以外のモードでは、ログレベルがC<debug>からC<info>に上がります。
+デフォルトの処理モードは通常 C<development>ですが、コマンドラインオプションか
+C<MOJO_MODE>あるいはC<PLACK_ENV>環境変数によって変更することもできます。C<development>以外のモードでは、ログレベルがC<debug>からC<info>に上がります。
 
   $ ./myapp.pl daemon -m production
 
@@ -910,8 +903,7 @@ C<log>ディレクトリが存在する場合はC<log/$mode.log>に出力され�
 
   $ mkdir log
 
-モードの変更は、C<exception>やC<not_found>テンプレートなど、
-フレームワークのその他の面にいくつか影響します。モードをC<development>からC<production>に切り替えると 、例外ページに機密情報が表示されなくなります。
+モードの変更は、C<exception>やC<not_found>テンプレートなどのフレームワークのその他の面に影響します。モードをC<development>からC<production>に切り替えると 、例外ページに機密情報が表示されなくなります。
 
 =head2 テスト
 
@@ -936,15 +928,15 @@ C<log>ディレクトリが存在する場合はC<log/$mode.log>に出力され�
   $ prove -l -v
   $ prove -l -v t/basic.t
 
-=head1 もっと詳しく
+=head1 もっと
 
-[[Mojolicious::Guides]] を続けるか、[[Mojolicious wiki|http://github.com/mojolicious/mojo/wiki]]を見てみましょう。多くの著者が様々なドキュメントやサンプルを書いています。
+さあ、[[Mojolicious::Guides]] を続けるか、[[Mojolicious wiki|http://github.com/mojolicious/mojo/wiki]]を見てみましょう。多くの著者がたくさんのドキュメントやサンプルを書いています。
 
 =head1 サポート
 
-本ドキュメントに書かれていないことで疑問があれば、
+このドキュメントでわからない部分があれば、
 [[mailing list|http://groups.google.com/group/mojolicious]] かC<irc.freenode.net> (L<chat
 now!|https://kiwiirc.com/nextclient/#irc://irc.freenode.net/mojo?nick=guest-?>)の公式IRCチャンネル C<#mojo> まで気軽に質問してください。
 
 =cut
-(Mojolicious 8.12を反映）
+(v8.12 2019/03/13更新）
