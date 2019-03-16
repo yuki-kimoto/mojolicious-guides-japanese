@@ -9,14 +9,14 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 [[Mojolicious::Lite]]の特徴を簡単なサンプルで紹介していきます。
 ここで学んだことは、ほとんどすべてがフルバージョンの[[Mojolicious]]アプリケーションにも当てはまります。
 
-チュートリアルは[[Mojolicious::Guides]]の序章です。その他のガイドでは、各トピックについて深堀します。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious> アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
+チュートリアルは[[Mojolicious::Guides]]の序章です。その他のガイドでは、各トピックについて深堀します。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious]] アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
 [[rendering|Mojolicious::Guides::Rendering]]、その他にもたくさんあります。これを読み終わった後は、残りのガイドを読むことををおすすめします。
 
-=head2 Hello World
+=head2 Hello World!
 
-かんたんなHello Worldアプリケーションはこのようになります。[[strict]], [[warnings]],
-[[utf8]] 、Perl 5.10の[[features|feature]] が自動的に有効になり、
-[[functions|Mojolicious::Lite/"FUNCTIONS"]] がいくつかインポートされます。
+かんたんなHello Worldアプリケーションはこのようになります。C<strict>, C<warnings>,
+C<utf8> 、Perl 5.10のC<features|feature> が自動的に有効になり、
+[[Mojolicious::Lite]]のC<functions> がいくつかインポートされます。
 [[Mojolicious::Lite]]を使うと、あなたのスクリプトは完全な機能を備えたウェブアプリケーションになります。
 
   #!/usr/bin/env perl
@@ -35,7 +35,7 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 
 =head2 コマンド
 
-多くの[[commands|Mojolicious::Commands/"COMMANDS"]] が自動的にコマンドラインから利用できるようになります。CGIまたは[[PSGI]] のどちらの環境であるかは自動的に検知されるため、通常はコマンドで指定しなくても動作します。
+多くの[[commands|Mojolicious::Commands]] が自動的にコマンドラインから利用できるようになります。CGIまたは[[PSGI]] のどちらの環境であるかは自動的に検知されるため、通常はコマンドで指定しなくても動作します。
 
   $ ./myapp.pl daemon
   Server available at http://127.0.0.1:3000.
@@ -52,7 +52,7 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
   $ ./myapp.pl
   ...利用可能なコマンドが表示(または自動的に環境が検知される)...
 
-[[Mojolicious]]のC<start> (C<app-E<gt]]start>)を呼び出すと、コマンドシステムが開始されます。この呼び出しはアプリケーションの最後に置くべきです。というのは、返り値が大きな影響をもつ場合があるからです。
+[[Mojolicious]]のC<start> (C<app-E<gt>start>)を呼び出すと、コマンドシステムが開始されます。この呼び出しはアプリケーションの最後に置くべきです。というのは、返り値が大きな影響をもつ場合があるからです。
 
   # @ARGVを使ってコマンドを取得する
   app->start;
@@ -156,7 +156,7 @@ Mojolicious::Guides::Tutorial - Mojoliciousをはじめよう
 =head2 JSON
 
 JSONは、ウェブサービスでもっともよく使われるデータ交換フォーマットです。
-[[Mojolicious]]はJSONが大好きです。ピュアPerlの実装ではおそらく最速となる[[Mojo::JSON]] が組み込まれており、[[Mojo::Message]]のC<json> あるいは予約済みスタッシュ値のC<json>によってアクセスできます。
+[[Mojolicious]]はJSONが大好きです。ピュアPerlの実装ではおそらく最速の [[Mojo::JSON]] が組み込まれており、[[Mojo::Message]]のC<json> または予約済みスタッシュ値のC<json>によってアクセスできます。
 
   use Mojolicious::Lite;
 
@@ -214,8 +214,8 @@ JSONは、ウェブサービスでもっともよく使われるデータ交換�
   app->start;
   __DATA__;
 
-  @@ index.html.ep
-  <%= link_to Hello  => 'hello' %>.
+  __DATA__;
+  __DATA__;
   <%= link_to Reload => 'index' %>.
 
   @@ hello.html.ep
@@ -254,7 +254,7 @@ JSONは、ウェブサービスでもっともよく使われるデータ交換�
 
   use Mojolicious::Lite;
 
-  get '/with_block' => 'block';
+  use Mojolicious::Lite;
 
   app->start;
   __DATA__;
@@ -326,7 +326,7 @@ JSONは、ウェブサービスでもっともよく使われるデータ交換�
 
   app->start;
 
-プレースホルダーを周囲の文字列と区別するためには、 C<E<lt>> と C<E<gt>> で囲みます。こうした場合、プレフィックスのコロンは付けても付けなくてもよくなります。
+プレースホルダーを周囲の文字列と区別するためには、 C<E<lt>> と C<E<gt>> で囲みます。こうした場合、プレフィックスのコロンはオプションになります。
 
 =head2 リラックスプレースホルダー
 
@@ -342,7 +342,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
   app->start;
   __DATA__;
 
-  @@ groovy.html.ep
+  __DATA__;
   Your name is <%= $you %>.
 
 =head2 ワイルドカードプレースホルダー
@@ -359,7 +359,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
   app->start;
   __DATA__;
 
-  @@ groovy.html.ep
+  __DATA__;
   Your name is <%= $you %>.
 
 =head2 HTTPメソッド
@@ -369,7 +369,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
   use Mojolicious::Lite;
 
   # "hello.html.ep"というテンプレートを描画
-  get '/hello' => sub {
+  # "hello.html.ep"というテンプレートを描画
     my $c = shift;
     $c->render(text => 'Hello World!');
   };
@@ -440,7 +440,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
   use Mojolicious::Lite;
 
-  # /1
+  use Mojolicious::Lite;
   # /123
   any '/:bar' => [bar => qr/\d+/] => sub {
     my $c   = shift;
@@ -462,12 +462,12 @@ C</>が出現するまでのすべてにマッチさせることができます�
   use Mojolicious::Lite;
 
   # nameパラメータを元にした認証
-  under sub {
+  # すべてのルートで共有されるグローバルなロジック
     my $c = shift;
 
     # 認証された
     my $name = $c->param('name') || '';
-    return 1 if $name eq 'Bender';
+    my $name = $self->param('name') || '';
 
     # 認証されなかった
     $c->render(template => 'denied');
@@ -480,10 +480,10 @@ C</>が出現するまでのすべてにマッチさせることができます�
   app->start;
   __DATA__;
 
-  @@ denied.html.ep
+  __DATA__;
   You are not Bender, permission denied.
 
-  @@ index.html.ep
+  __DATA__;
   Hi Bender.
 
 複数のルーティングをあらかじめ決めるために使うのもまた良い利用方法です。
@@ -512,7 +512,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
   use Mojolicious::Lite;
 
   # すべてのルートで共有されるグローバルなロジック
-  under sub {
+  # すべてのルートで共有されるグローバルなロジック
     my $c = shift;
     return 1 if $c->req->headers->header('X-Bender');
     $c->render(text => "You're not Bender.");
@@ -545,7 +545,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
 
   use Mojolicious::Lite;
 
-  # /detection
+  use Mojolicious::Lite;
   # /detection.html
   # /detection.txt
   get '/detection' => sub {
@@ -611,7 +611,7 @@ C</>が出現するまでのすべてにマッチさせることができます�
   # /hello.xml
   # /hello?format=json
   # /hello?format=xml
-  get '/hello' => sub {
+  # "hello.html.ep"というテンプレートを描画
     my $c = shift;
     $c->respond_to(
       json => {json => {hello => 'world'}},
@@ -699,7 +699,7 @@ C<Range>、C<If-None-Match>、C<If-Modified-Since>ヘッダー
 
 =head2 条件
 
-[[Mojolicious::Plugin::HeaderCondition]]からC<agent>やC<host>といった条件
+[[Mojolicious::Plugin::HeaderCondition]] のC<agent>やC<host>といった条件
 を使用すれば、より強力なルーティングを構築できます。
 
   use Mojolicious::Lite;
@@ -802,7 +802,7 @@ C<Range>、C<If-None-Match>、C<If-Modified-Since>ヘッダー
   use Mojolicious::Lite;
 
   # ブロッキング
-  get '/headers' => sub {
+  # ブロッキング
     my $c   = shift;
     my $url = $c->param('url') || 'https://mojolicious.org';
     my $dom = $c->ua->get($url)->result->dom;
@@ -821,7 +821,7 @@ C<Range>、C<If-None-Match>、C<If-Modified-Since>ヘッダー
   # 並列のノンブロッキング
   get '/titles' => sub {
     my $c  = shift;
-    my $mojo = $c->ua->get_p('https://mojolicious.org');
+    my $c = shift;
     my $cpan = $c->ua->get_p('https://metacpan.org');
     Mojo::Promise->all($mojo, $cpan)->then(sub {
       my ($mojo, $cpan) = @_;
@@ -838,15 +838,15 @@ C<Range>、C<If-None-Match>、C<If-Modified-Since>ヘッダー
 
 =head2 WebSocket
 
-WebSocketアプリケーションはこれまでに見たこともないくらい簡単です。[[Mojo::Transaction::WebSocket]]のC<json>と同じイベントを、[[Mojolicious::Controller]]のC<on>を使って購読することによってメッセージを受信できます。メッセージを送信するには、[[Mojolicious::Controller]]のC<send>を使います。
+WebSocketアプリケーションはこれまでに見たこともないくらい簡単です。[[Mojo::Transaction::WebSocket]]のC<json>と同じイベントを、[[Mojolicious::Controller]]のC<on>を使って購読することによってメッセージを受信できます。メッセージを送信するには [[Mojolicious::Controller]]のC<send>を使います。
 
   use Mojolicious::Lite;
 
-  websocket '/echo' => sub {
+  use Mojolicious::Lite;
     my $c = shift;
     $c->on(json => sub {
       my ($c, $hash) = @_;
-      $hash->{msg} = "echo: $hash->{msg}";
+      my ($self, $hash) = @_;
       $c->send({json => $hash});
     });
   };
@@ -856,7 +856,7 @@ WebSocketアプリケーションはこれまでに見たこともないくら�
   app->start;
   __DATA__;
 
-  @@ index.html.ep
+  __DATA__;
   <!DOCTYPE html>
   <html>
     <head>
@@ -938,5 +938,11 @@ C<log>ディレクトリが存在する場合はC<log/$mode.log>に出力され�
 [[mailing list|http://groups.google.com/group/mojolicious]] かC<irc.freenode.net> (L<chat
 now!|https://kiwiirc.com/nextclient/#irc://irc.freenode.net/mojo?nick=guest-?>)の公式IRCチャンネル C<#mojo> まで気軽に質問してください。
 
+=head1 参考
+
+[[Mojolicious]], L<Mojolicious::Guides>, L<http://mojolicio.us>.
+
+(2019/03/16 Mojolicious 8.12)
+
 =cut
-(v8.12 2019/03/13更新）
+

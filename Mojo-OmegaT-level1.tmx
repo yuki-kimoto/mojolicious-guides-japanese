@@ -14,6 +14,22 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg># /1</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025614Z" creationid="mokoo" creationdate="20190316T025614Z">
+        <seg>use Mojolicious::Lite;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg># /detection</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025633Z" creationid="mokoo" creationdate="20190316T025633Z">
+        <seg>use Mojolicious::Lite;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg># /foo?user=sri</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -614,6 +630,14 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>$hash-&gt;{msg} = "echo: $hash-&gt;{msg}";</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025839Z" creationid="mokoo" creationdate="20190316T025839Z">
+        <seg>my ($self, $hash) = @_;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>%= select_field country =&gt; [[Germany =&gt; 'de', selected =&gt; 'selected'], 'en']</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190310T013241Z" creationid="mokoo" creationdate="20190310T013241Z">
@@ -646,11 +670,25 @@
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>&lt;%= link_to Hello  =&gt; 'hello' %&gt;.</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025528Z" creationid="mokoo" creationdate="20190316T025528Z">
+        <seg>__DATA__;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>=cut</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190312T135501Z" creationid="mokoo" creationdate="20190310T023713Z">
-        <seg>=cut
-(v8.12 2019/03/13更新）</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T030803Z" creationid="mokoo" creationdate="20190310T023713Z">
+        <seg>=head1 参考
+
+[[Mojolicious]], L&lt;Mojolicious::Guides&gt;, L&lt;http://mojolicio.us&gt;.
+
+(2019/03/16 Mojolicious 8.12)
+
+=cut
+</seg>
       </tuv>
     </tu>
     <tu>
@@ -803,6 +841,14 @@
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
         <seg>=head2 HTTPメソッド</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>=head2 Hello World</seg>
+      </tuv>
+      <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>=head2 Hello World!</seg>
       </tuv>
     </tu>
     <tu>
@@ -2089,6 +2135,30 @@ and technical, happen all the time and [[Mojolicious]] is no exception.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>@@ denied.html.ep</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025620Z" creationid="mokoo" creationdate="20190316T025620Z">
+        <seg>__DATA__;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>@@ groovy.html.ep</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025600Z" creationid="mokoo" creationdate="20190316T025600Z">
+        <seg>__DATA__;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>@@ index.html.ep</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025828Z" creationid="mokoo" creationdate="20190316T025828Z">
+        <seg>__DATA__;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>@@ secret.html.ep</seg>
       </tuv>
       <tuv lang="JA" changeid="OmegaT Aligner" changedate="20190308T115636Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -2129,8 +2199,8 @@ generated from the value of [[Mojolicious/"moniker"]] (C&lt;$moniker.json&gt;).<
 system, should be the last expression in your application, because its return
 value can be significant.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190312T123054Z" creationid="mokoo" creationdate="20190309T063440Z">
-        <seg>[[Mojolicious]]のC&lt;start&gt; (C&lt;app-E&lt;gt]]start&gt;)を呼び出すと、コマンドシステムが開始されます。この呼び出しはアプリケーションの最後に置くべきです。というのは、返り値が大きな影響をもつ場合があるからです。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T023941Z" creationid="mokoo" creationdate="20190309T063440Z">
+        <seg>[[Mojolicious]]のC&lt;start&gt; (C&lt;app-E&lt;gt&gt;start&gt;)を呼び出すと、コマンドシステムが開始されます。この呼び出しはアプリケーションの最後に置くべきです。というのは、返り値が大きな影響をもつ場合があるからです。</seg>
       </tuv>
     </tu>
     <tu>
@@ -2373,10 +2443,10 @@ L and Perl 5.10 L&lt;features|feature&gt; are automatically enabled and a few
 L&lt;functions|Mojolicious::Lite/"FUNCTIONS"&gt; imported, when you use
 L&lt;Mojolicious::Lite&gt;, turning your script into a full featured web application.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190310T013135Z" creationid="mokoo" creationdate="20190309T061314Z">
-        <seg>かんたんなHello Worldアプリケーションはこのようになります。[[strict]], [[warnings]],
-[[utf8]] 、Perl 5.10の[[features|feature]] が自動的に有効になり、
-[[functions|Mojolicious::Lite/"FUNCTIONS"]] がいくつかインポートされます。
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025306Z" creationid="mokoo" creationdate="20190309T061314Z">
+        <seg>かんたんなHello Worldアプリケーションはこのようになります。C&lt;strict&gt;, C&lt;warnings&gt;,
+C 、Perl 5.10のC&lt;features|feature&gt; が自動的に有効になり、
+[[Mojolicious::Lite]]のC&lt;functions&gt; がいくつかインポートされます。
 [[Mojolicious::Lite]]を使うと、あなたのスクリプトは完全な機能を備えたウェブアプリケーションになります。</seg>
       </tuv>
     </tu>
@@ -4324,8 +4394,8 @@ L&lt;Mojolicious::Commands&gt; object.</seg>
 L&lt;Mojolicious::Plugin::HeaderCondition&gt; allow even more powerful route
 constructs.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190310T013319Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>[[Mojolicious::Plugin::HeaderCondition]]からC&lt;agent&gt;やC&lt;host&gt;といった条件
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025743Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>[[Mojolicious::Plugin::HeaderCondition]] のC&lt;agent&gt;やC&lt;host&gt;といった条件
 を使用すれば、より強力なルーティングを構築できます。</seg>
       </tuv>
     </tu>
@@ -7569,8 +7639,8 @@ messages by subscribing to events such as
 L&lt;Mojo::Transaction::WebSocket/"json"&gt; with L&lt;Mojolicious::Controller/"on"&gt; and
 return them with L&lt;Mojolicious::Controller/"send"&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190310T013319Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
-        <seg>[[Mojo::Transaction::WebSocket]]のC&lt;json&gt;と同じイベントを、[[Mojolicious::Controller]]のC&lt;on&gt;を使って購読することによってメッセージを受信できます。メッセージを送信するには、[[Mojolicious::Controller]]のC&lt;send&gt;を使います。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025838Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>[[Mojo::Transaction::WebSocket]]のC&lt;json&gt;と同じイベントを、[[Mojolicious::Controller]]のC&lt;on&gt;を使って購読することによってメッセージを受信できます。メッセージを送信するには [[Mojolicious::Controller]]のC&lt;send&gt;を使います。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11210,8 +11280,8 @@ following new ones.</seg>
 implementation L&lt;Mojo::JSON&gt; built right in, which is accessible through
 L&lt;Mojo::Message/"json"&gt; as well as the reserved stash value C&lt;json&gt;.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190312T123818Z" creationid="mokoo" creationdate="20190309T064553Z">
-        <seg>[[Mojolicious]]はJSONが大好きです。ピュアPerlの実装ではおそらく最速となる[[Mojo::JSON]] が組み込まれており、[[Mojo::Message]]のC&lt;json&gt; あるいは予約済みスタッシュ値のC&lt;json&gt;によってアクセスできます。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025512Z" creationid="mokoo" creationdate="20190309T064553Z">
+        <seg>[[Mojolicious]]はJSONが大好きです。ピュアPerlの実装ではおそらく最速の [[Mojo::JSON]] が組み込まれており、[[Mojo::Message]]のC&lt;json&gt; または予約済みスタッシュ値のC&lt;json&gt;によってアクセスできます。</seg>
       </tuv>
     </tu>
     <tu>
@@ -11690,8 +11760,8 @@ with [[Mojolicious/"config"]], for a full list see
         <seg>Many different L&lt;commands|Mojolicious::Commands/"COMMANDS"&gt; are automatically
 available from the command line.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190310T012648Z" creationid="mokoo" creationdate="20190309T062059Z">
-        <seg>多くの[[commands|Mojolicious::Commands/"COMMANDS"]] が自動的にコマンドラインから利用できるようになります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025352Z" creationid="mokoo" creationdate="20190309T062059Z">
+        <seg>多くの[[commands|Mojolicious::Commands]] が自動的にコマンドラインから利用できるようになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -12672,8 +12742,8 @@ prototype into a well-structured L&lt;Mojolicious&gt; application,
 L&lt;routing|Mojolicious::Guides::Routing&gt;,
 L&lt;rendering|Mojolicious::Guides::Rendering&gt; and more.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190312T122747Z" creationid="mokoo" creationdate="20190309T023442Z">
-        <seg>その他のガイドでは、各トピックについて深堀します。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious&gt; アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T023846Z" creationid="mokoo" creationdate="20190309T023442Z">
+        <seg>その他のガイドでは、各トピックについて深堀します。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious]] アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
 [[rendering|Mojolicious::Guides::Rendering]]、その他にもたくさんあります。</seg>
       </tuv>
     </tu>
@@ -16653,8 +16723,8 @@ default, which you can tweak with the attribute
         <seg>To separate them from the surrounding text, you can surround your placeholders
 with C&lt;E&lt;lt&gt;&gt; and C&lt;E&lt;gt&gt;&gt;, which also makes the colon prefix optional.</seg>
       </tuv>
-      <tuv lang="JA" changeid="mokoo" changedate="20190314T225538Z" creationid="mokoo" creationdate="20190309T070902Z">
-        <seg>プレースホルダーを周囲の文字列と区別するためには、 C&lt;E&lt;lt&gt;&gt; と C&lt;E&lt;gt&gt;&gt; で囲みます。こうした場合、プレフィックスのコロンは付けても付けなくてもよくなります。</seg>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T030530Z" creationid="mokoo" creationdate="20190309T070902Z">
+        <seg>プレースホルダーを周囲の文字列と区別するためには、 C&lt;E&lt;lt&gt;&gt; と C&lt;E&lt;gt&gt;&gt; で囲みます。こうした場合、プレフィックスのコロンはオプションになります。</seg>
       </tuv>
     </tu>
     <tu>
@@ -18248,6 +18318,22 @@ every change.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>get '/headers' =&gt; sub {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025817Z" creationid="mokoo" creationdate="20190316T025817Z">
+        <seg># ブロッキング</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>get '/hello' =&gt; sub {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025604Z" creationid="mokoo" creationdate="20190316T025604Z">
+        <seg># "hello.html.ep"というテンプレートを描画</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>get '/hello';</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190310T010407Z" creationid="mokoo" creationdate="20190310T010407Z">
@@ -18268,6 +18354,14 @@ every change.</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190312T130758Z" creationid="mokoo" creationdate="20190312T130758Z">
         <seg>get '/hello/:name' =&gt; {name =&gt; 'Sebastian', day =&gt; 'Monday'} =&gt; sub {</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>get '/with_block' =&gt; 'block';</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025536Z" creationid="mokoo" creationdate="20190316T025536Z">
+        <seg>use Mojolicious::Lite;</seg>
       </tuv>
     </tu>
     <tu>
@@ -18392,6 +18486,14 @@ every change.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>my $mojo = $c-&gt;ua-&gt;get_p('https://mojolicious.org');</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025819Z" creationid="mokoo" creationdate="20190316T025819Z">
+        <seg>my $c = shift;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>my $name = $c-&gt;param('name') || '';</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190312T131209Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
@@ -18480,6 +18582,14 @@ every change.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>return 1 if $name eq 'Bender';</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025619Z" creationid="mokoo" creationdate="20190316T025619Z">
+        <seg>my $name = $self-&gt;param('name') || '';</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>return undef;</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190312T132720Z" creationid="mokoo" creationdate="20190312T132655Z">
@@ -18488,9 +18598,25 @@ every change.</seg>
     </tu>
     <tu>
       <tuv lang="EN">
+        <seg>under sub {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025626Z" creationid="mokoo" creationdate="20190316T025626Z">
+        <seg># すべてのルートで共有されるグローバルなロジック</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
         <seg>use Mojolicious::Lite;</seg>
       </tuv>
       <tuv lang="JA" changeid="mokoo" changedate="20190309T061858Z" creationid="OmegaT Aligner" creationdate="20190308T115636Z">
+        <seg>use Mojolicious::Lite;</seg>
+      </tuv>
+    </tu>
+    <tu>
+      <tuv lang="EN">
+        <seg>websocket '/echo' =&gt; sub {</seg>
+      </tuv>
+      <tuv lang="JA" changeid="mokoo" changedate="20190316T025826Z" creationid="mokoo" creationdate="20190316T025826Z">
         <seg>use Mojolicious::Lite;</seg>
       </tuv>
     </tu>
