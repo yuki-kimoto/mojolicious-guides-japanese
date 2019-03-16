@@ -12742,8 +12742,8 @@ prototype into a well-structured L&lt;Mojolicious&gt; application,
 L&lt;routing|Mojolicious::Guides::Routing&gt;,
 L&lt;rendering|Mojolicious::Guides::Rendering&gt; and more.</seg>
       </tuv>
-      <tuv xml:lang="JA" changeid="mokoo" changedate="20190316T023846Z" creationid="mokoo" creationdate="20190309T023442Z">
-        <seg>その他のガイドでは、各トピックについて深堀します。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious]] アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
+      <tuv xml:lang="JA" changeid="mokoo" changedate="20190316T031709Z" creationid="mokoo" creationdate="20190309T023442Z">
+        <seg>その他のガイドでは、各トピックについて深く掘り下げます。たとえば、[[Mojolicious::Lite]]のプロトタイプをしっかり構築した[[Mojolicious]] アプリケーションに育てるための[[growing|Mojolicious::Guides::Growing]]や[[routing|Mojolicious::Guides::Routing]]、
 [[rendering|Mojolicious::Guides::Rendering]]、その他にもたくさんあります。</seg>
       </tuv>
     </tu>
@@ -16474,8 +16474,8 @@ tags.</seg>
       <tuv xml:lang="EN">
         <seg>This is only the first of the L&lt;Mojolicious::Guides&gt;.</seg>
       </tuv>
-      <tuv xml:lang="JA" changeid="mokoo" changedate="20190310T012648Z" creationid="mokoo" creationdate="20190309T022750Z">
-        <seg>チュートリアルは[[Mojolicious::Guides]]の序章です。</seg>
+      <tuv xml:lang="JA" changeid="mokoo" changedate="20190316T031657Z" creationid="mokoo" creationdate="20190309T022750Z">
+        <seg>チュートリアルは[[Mojolicious::Guides]]のはじめの章です。</seg>
       </tuv>
     </tu>
     <tu>
